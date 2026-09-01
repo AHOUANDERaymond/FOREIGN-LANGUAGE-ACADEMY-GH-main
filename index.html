@@ -58,6 +58,7 @@
       color: white;
       font-size: 1.5rem;
       cursor: pointer;
+      padding: 0.5rem;
     }
     
     .nav-tabs {
@@ -1544,201 +1545,168 @@
   </footer>
   
   <script>
-    // Animation des compteurs
-    function animateValue(id, start, end, duration) {
-      const obj = document.getElementById(id);
-      let startTimestamp = null;
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        obj.innerHTML = Math.floor(progress * (end - start) + start);
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        }
-      };
-      window.requestAnimationFrame(step);
-    }
-
-    // Démarrer les animations quand la section est visible
-    function startCounters() {
-      animateValue("students-count", 0, 1500, 2000);
-      animateValue("countries-count", 0, 15, 1500);
-      animateValue("teachers-count", 0, 28, 1500);
-      animateValue("abroad-count", 0, 320, 2000);
-    }
-
-    // Observer pour déclencher l'animation
+    // ============================================================
+    // SCRIPT UNIQUE - CORRECTION DU MENU HAMBURGER
+    // ============================================================
     document.addEventListener('DOMContentLoaded', function() {
-      const statsSection = document.querySelector('.stats-section');
       
+      // ----- MENU HAMBURGER (CORRIGÉ) -----
+      var menuToggle = document.getElementById('menuToggle');
+      var navTabs = document.getElementById('navTabs');
+      
+      if (menuToggle && navTabs) {
+        // Supprimer les anciens écouteurs pour éviter les doublons
+        var newToggle = menuToggle.cloneNode(true);
+        menuToggle.parentNode.replaceChild(newToggle, menuToggle);
+        menuToggle = document.getElementById('menuToggle');
+        
+        menuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          navTabs.classList.toggle('active');
+          
+          // Changer l'icône
+          var icon = this.querySelector('i');
+          if (navTabs.classList.contains('active')) {
+            icon.className = 'fas fa-times';
+          } else {
+            icon.className = 'fas fa-bars';
+          }
+        });
+      }
+
+      // ----- CARROUSEL (inchangé) -----
+      var slides = document.querySelector('.student-slides');
+      var slideItems = document.querySelectorAll('.student-slide');
+      var dots = document.querySelectorAll('.dot');
+      var prevBtn = document.querySelector('.prev-btn');
+      var nextBtn = document.querySelector('.next-btn');
+      
+      if (slides && slideItems.length > 0) {
+        var currentIndex = 0;
+        var slideCount = slideItems.length;
+        
+        function updateCarousel() {
+          slides.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+          dots.forEach(function(dot, index) {
+            if (index === currentIndex) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        }
+        
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % slideCount;
+          updateCarousel();
+        }
+        
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+          updateCarousel();
+        }
+        
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        
+        dots.forEach(function(dot, index) {
+          dot.addEventListener('click', function() {
+            currentIndex = index;
+            updateCarousel();
+          });
+        });
+        
+        var slideInterval = setInterval(nextSlide, 2000);
+        var carousel = document.querySelector('.student-carousel');
+        if (carousel) {
+          carousel.addEventListener('mouseenter', function() {
+            clearInterval(slideInterval);
+          });
+          carousel.addEventListener('mouseleave', function() {
+            slideInterval = setInterval(nextSlide, 2000);
+          });
+        }
+      }
+
+      // ----- BACK TO TOP (inchangé) -----
+      var backToTop = document.querySelector('.back-to-top');
+      if (backToTop) {
+        backToTop.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300) {
+            backToTop.style.display = 'flex';
+          } else {
+            backToTop.style.display = 'none';
+          }
+        });
+      }
+
+      // ----- WHATSAPP POPUP (inchangé) -----
+      var whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+      var closeMiniPopup = document.getElementById('closeMiniPopup');
+      var whatsappBubble = document.getElementById('whatsappBubble');
+      
+      if (whatsappMiniPopup && closeMiniPopup && whatsappBubble) {
+        var hasClosedPopup = localStorage.getItem('whatsappPopupClosed');
+        
+        if (!hasClosedPopup) {
+          setTimeout(function() {
+            whatsappMiniPopup.style.display = 'block';
+          }, 2000);
+        } else {
+          whatsappMiniPopup.style.display = 'none';
+        }
+        
+        closeMiniPopup.addEventListener('click', function(e) {
+          e.stopPropagation();
+          whatsappMiniPopup.style.display = 'none';
+          localStorage.setItem('whatsappPopupClosed', 'true');
+        });
+        
+        whatsappBubble.addEventListener('click', function() {
+          window.open('https://wa.me/233536725050', '_blank');
+          whatsappMiniPopup.style.display = 'none';
+          localStorage.setItem('whatsappPopupClosed', 'true');
+        });
+        
+        setTimeout(function() {
+          localStorage.removeItem('whatsappPopupClosed');
+        }, 5 * 60 * 1000);
+      }
+
+      // ----- COMPTEURS (inchangé) -----
+      function animateValue(id, start, end, duration) {
+        var obj = document.getElementById(id);
+        if (!obj) return;
+        var startTimestamp = null;
+        function step(timestamp) {
+          if (!startTimestamp) startTimestamp = timestamp;
+          var progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          obj.innerHTML = Math.floor(progress * (end - start) + start);
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        }
+        window.requestAnimationFrame(step);
+      }
+      
+      var statsSection = document.querySelector('.stats-section');
       if (statsSection) {
-        const observer = new IntersectionObserver((entries) => {
+        var observer = new IntersectionObserver(function(entries) {
           if (entries[0].isIntersecting) {
-            startCounters();
+            animateValue('students-count', 0, 1500, 2000);
+            animateValue('countries-count', 0, 15, 1500);
+            animateValue('teachers-count', 0, 28, 1500);
+            animateValue('abroad-count', 0, 320, 2000);
             observer.disconnect();
           }
         }, { threshold: 0.5 });
-
         observer.observe(statsSection);
-      }
-      
-      // Script pour le carrousel
-      const slides = document.querySelector('.student-slides');
-      const slideItems = document.querySelectorAll('.student-slide');
-      const dots = document.querySelectorAll('.dot');
-      const prevBtn = document.querySelector('.prev-btn');
-      const nextBtn = document.querySelector('.next-btn');
-      
-      let currentIndex = 0;
-      const slideCount = slideItems.length;
-      
-      function updateCarousel() {
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
-        // Mettre à jour les dots
-        dots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === currentIndex);
-        });
-      }
-      
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % slideCount;
-        updateCarousel();
-      }
-      
-      function prevSlide() {
-        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-        updateCarousel();
-      }
-      
-      // Navigation avec les boutons
-      nextBtn.addEventListener('click', nextSlide);
-      prevBtn.addEventListener('click', prevSlide);
-      
-      // Navigation avec les dots
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          currentIndex = index;
-          updateCarousel();
-        });
-      });
-      
-      // Défilement automatique
-      let slideInterval = setInterval(nextSlide, 2000);
-      
-      // Arrêter le défilement automatique quand la souris est sur le carrousel
-      const carousel = document.querySelector('.student-carousel');
-      carousel.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-      });
-      
-      carousel.addEventListener('mouseleave', () => {
-        slideInterval = setInterval(nextSlide, 2000);
-      });
-
-      // Script pour le menu responsive
-      document.getElementById('menuToggle').addEventListener('click', function() {
-        const navTabs = document.getElementById('navTabs');
-        navTabs.classList.toggle('active');
-        
-        // Changer l'icône
-        const icon = this.querySelector('i');
-        if (navTabs.classList.contains('active')) {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-        } else {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-        }
-      });
-
-      // Fonction pour remonter en haut de page
-      function scrollToTop() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
-    });
-
-    // Script pour le bouton Back to Top
-    document.querySelector('.back-to-top').addEventListener('click', function(e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Script pour le menu responsive (déjà présent)
-    document.getElementById('menuToggle').addEventListener('click', function() {
-      const navTabs = document.getElementById('navTabs');
-      navTabs.classList.toggle('active');
-      
-      const icon = this.querySelector('i');
-      if (navTabs.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
-
-    // Script pour le popup WhatsApp
-    document.addEventListener('DOMContentLoaded', function() {
-      const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
-      const closeMiniPopup = document.getElementById('closeMiniPopup');
-      const whatsappBubble = document.getElementById('whatsappBubble');
-      
-      // Vérifier si le popup a déjà été fermé
-      const hasClosedPopup = localStorage.getItem('whatsappPopupClosed');
-      
-      // Si le popup n'a pas été fermé, l'afficher après 2 secondes
-      if (!hasClosedPopup) {
-        setTimeout(function() {
-          whatsappMiniPopup.style.display = 'block';
-        }, 2000);
-      } else {
-        whatsappMiniPopup.style.display = 'none';
-      }
-      
-      // Gérer le clic sur la croix de fermeture
-      closeMiniPopup.addEventListener('click', function(e) {
-        e.stopPropagation();
-        closeWhatsAppPopup();
-      });
-
-      // Gérer le clic sur la bulle WhatsApp
-      whatsappBubble.addEventListener('click', function() {
-        window.open('https://wa.me/233536725050', '_blank');
-        // Masquer le popup après avoir cliqué
-        closeWhatsAppPopup();
-      });
-
-      // Permettre de réafficher le popup après 5 minutes (300000 ms)
-      setTimeout(function() {
-        localStorage.removeItem('whatsappPopupClosed');
-      }, 1 * 60 * 1000); // 5 minutes
-    });
-
-    // Fonction pour fermer manuellement le popup
-    function closeWhatsAppPopup() {
-      const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
-      whatsappMiniPopup.style.display = 'none';
-      localStorage.setItem('whatsappPopupClosed', 'true');
-    }
-
-    // Script pour le bouton Back to Top (déjà présent, mais on garde)
-    document.querySelector('.back-to-top').addEventListener('click', function(e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Afficher/masquer le bouton Back to Top selon le défilement
-    window.addEventListener('scroll', function() {
-      const backToTopButton = document.querySelector('.back-to-top');
-      if (window.scrollY > 300) {
-        backToTopButton.style.display = 'flex';
-      } else {
-        backToTopButton.style.display = 'none';
       }
     });
   </script>
