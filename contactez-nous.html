@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactez-nous - Foreign Language Academy GH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Styles de base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Barre de navigation responsive */
+    .navbar {
+      background: linear-gradient(135deg, #0d0982 0%, #1a15a0 100%);
+      color: white;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(13, 9, 130, 0.2);
+      position: relative;
+      z-index: 100;
+    }
+    
+    .navbar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #eb9234, #0d0982);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .app-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      padding: 0.5rem 0;
+    }
+    
+    .logo {
+      height: 50px;
+      width: auto;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .nav-tabs {
+      display: flex;
+      list-style: none;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-tab {
+      position: relative;
+    }
+    
+    .nav-tab a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 0.8rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 0.9rem;
+    }
+    
+    .nav-tab a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #eb9234;
+    }
+    
+    .nav-tab a.active {
+      color: #eb9234;
+      font-weight: 600;
+    }
+    
+    .nav-tab a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #eb9234;
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('number-contact.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+    }
+    
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+    
+    .contact-form {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form h2 {
+      color: #1e3c72;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .contact-form h2:after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background-color: #e74c3c;
+      bottom: 0;
+      left: 0;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #444;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+    
+    .form-control:focus {
+      border-color: #1e3c72;
+      outline: none;
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      background-color: #c0392b;
+      transform: translateY(-2px);
+    }
+    
+    .contact-info {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-info h2 {
+      color: #1e3c72;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .contact-info h2:after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background-color: #e74c3c;
+      bottom: 0;
+      left: 0;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    
+    .info-icon {
+      color: #e74c3c;
+      font-size: 1.5rem;
+      margin-right: 1.2rem;
+      margin-top: 5px;
+    }
+    
+    .info-content h3 {
+      color: #1e3c72;
+      margin-bottom: 0.3rem;
+      font-size: 1.2rem;
+    }
+    
+    .info-content p {
+      color: #666;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #1e3c72;
+      color: white;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: #e74c3c;
+      transform: translateY(-3px);
+    }
+    
+    .map-container {
+      margin-top: 3rem;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .map-container a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #1e3c72;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .map-container a:hover {
+      background-color: #e74c3c;
+      transform: translateY(-2px);
+    }
+    
+    /* Style pour la page de remerciement */
+    .thank-you {
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    
+    .thank-you h1 {
+      color: #1e3c72;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .thank-you p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .thank-you .home-btn {
+      display: inline-block;
+      background-color: #e74c3c;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .thank-you .home-btn:hover {
+      background-color: #c0392b;
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    .guide-footer {
+      background: #222;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    .footer-buttons {
+      margin-top: 1rem;
+    }
+    
+    /* Styles pour le bouton Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: white;
+      border: 5px solid #3498db;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+      display: none; /* Caché par défaut */
+    }
+
+    .back-to-top:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      border-color: #2980b9;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-top i {
+      color: #e74c3c;
+      font-size: 24px;
+    }
+    
+    /* Styles pour le popup WhatsApp */
+    .whatsapp-mini-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      animation: float 3s ease-in-out infinite;
+      display: block; /* Afficher par défaut pour test */
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .whatsapp-bubble {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-radius: 50px;
+      padding: 15px 25px;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      backdrop-filter: blur(10px);
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+      50% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.5); }
+      100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+    }
+    
+    .whatsapp-bubble:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-icon-mini {
+      font-size: 28px;
+      color: white;
+    }
+    
+    .whatsapp-text {
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    .whatsapp-number {
+      font-size: 16px;
+      font-weight: 700;
+      display: block;
+      margin-top: 3px;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .whatsapp-link-inline {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .whatsapp-link-inline:hover {
+      text-decoration: underline;
+    }
+    
+    .close-mini-popup {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #ff4757;
+      color: white;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
+      z-index: 1001;
+    }
+    
+    .close-mini-popup:hover {
+      background: #ff3742;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      .nav-tabs {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(13, 9, 130, 0.95);
+        margin-top: 1rem;
+      }
+      
+      .nav-tabs.active {
+        display: flex;
+      }
+      
+      .nav-tab {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav-tab a {
+        padding: 1rem;
+      }
+      
+      .header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .header p {
+        font-size: 1rem;
+      }
+      
+      .logo {
+        height: 40px;
+      }
+      
+      .app-name {
+        font-size: 1.3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .whatsapp-mini-popup {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+      }
+      
+      .whatsapp-bubble {
+        padding: 12px 20px;
+      }
+      
+      .whatsapp-text {
+        font-size: 13px;
+      }
+      
+      .whatsapp-number {
+        font-size: 14px;
+      }
+      
+      .back-to-top {
+        bottom: 80px; /* Pour ne pas chevaucher le popup WhatsApp */
+        right: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header {
+        padding: 4rem 1rem;
+      }
+      
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .header p {
+        font-size: 0.9rem;
+      }
+      
+      .contact-form, .contact-info {
+        padding: 1.5rem;
+      }
+      
+      .app-name span {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barre de navigation avec menu responsive -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="app-name">
+        <img src="logo_fla.jpg" alt="Logo FLA" class="logo">
+        <span>Foreign Language Academy GH</span>
+      </h1>    
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-tabs" id="navTabs">
+      <li class="nav-tab"><a href="index.html">Home</a></li>
+      <li class="nav-tab"><a href="programmes.html">Programmes</a></li>
+      <li class="nav-tab"><a href="extra-scolaire.html">Immersion</a></li>
+      <li class="nav-tab"><a href="vie-au-ghana.html">Vivre au Ghana</a></li>
+      <!-- <li class="nav-tab"><a href="etudes-bourses.html">Études à l'étranger</a></li> -->
+      <li class="nav-tab"><a href="alumini.html">Témoignages</a></li>
+      <li class="nav-tab"><a href="contactez-nous.html">Contacts</a></li>
+    </ul>
+    </div>
+  </nav>
+
+  <!-- <header class="header">
+    <h1>Contactez-nous</h1>
+    <p>Pour toute demande d'information ou inscription à nos formations linguistiques</p>
+  </header> -->
+  
+  <div class="container">
+    <div class="contact-form">
+      <h2>Envoyez-nous un message</h2>
+      <form action="https://formsubmit.co/flaghaccra@gmail.com" method="POST">
+        <!-- Champs cachés pour configurer FormSubmit -->
+        <input type="hidden" name="_subject" value="Nouveau message de contact - FLA GH">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="thank_you.html">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <div class="form-group">
+          <label for="name">Nom complet</label>
+          <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Adresse email</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Téléphone</label>
+          <input type="tel" id="phone" name="phone" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Sujet</label>
+          <select id="subject" name="subject" class="form-control" required>
+            <option value="">Sélectionnez un sujet</option>
+            <option value="formation">Demande d'information sur les formations</option>
+            <option value="inscription">Demande d'inscription</option>
+            <option value="test">Information sur les tests internationaux</option>
+            <option value="autre">Autre demande</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" class="form-control" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Envoyer le message</button>
+      </form>
+    </div>
+    
+    <div class="contact-info">
+      <h2>Nos coordonnées</h2>
+      
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="info-content">
+          <h3>Adresse</h3>
+          <p>Ashongman Estates, Accra<br>Ghana</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="info-content">
+          <h3>Téléphone</h3>
+          <p>+233 536 725 050<br>+233 202 165 231</p>
+          <p>+233 537 065 208<br>+229 016 428 4866</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="info-content">
+          <h3>Email</h3>
+          <p>flaghaccra@gmail.com</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="info-content">
+          <h3>Heures d'ouverture</h3>
+          <p>Lundi - Vendredi: 7h00 - 16h00</p>
+        </div>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/16XZAphYVM/" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/foreignlanguageacademygh?igsh=MWJidWNwcXdkNGgxcw==" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@flaghana?_t=ZM-8xCsxxLEShU&_r=1" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://wa.me/233536725050" target="_blank" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      
+      <div class="map-container">
+        <a href="https://maps.app.goo.gl/nKhDjgT4wxRXTh8w9" target="_blank" aria-label="Google Maps Location">
+          <i class="fas fa-map-marker-alt"></i> Voir sur Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+
+ <!-- POPUP WHATSAPP MINIMALISTE -->
+  <div class="whatsapp-mini-popup" id="whatsappMiniPopup">
+    <div class="whatsapp-bubble" id="whatsappBubble">
+      <i class="fab fa-whatsapp whatsapp-icon-mini"></i>
+      <div class="whatsapp-text">
+        📱 Un groupe WhatsApp de cours d'anglais 
+             gratuit et sans engagement? 
+             
+        <span class="whatsapp-number">
+          <a href="https://chat.whatsapp.com/G40JEhaukk62vxJGZp1FEe" target="_blank" class="whatsapp-link-inline">
+            REJOINDRE
+          </a>
+          <a href="https://wa.me/233536725050" target="_blank" class="whatsapp-link-inline">
+            +233 536725050
+          </a>
+        </span>
+      </div>
+    </div>
+    <!-- BOUTON DE FERMETURE AJOUTÉ ICI -->
+    <div class="close-mini-popup" id="closeMiniPopup">
+      <i class="fas fa-times"></i>
+    </div>
+  </div>
+  
+  <!-- Bouton Back to Top -->
+  <a href="#" class="back-to-top" id="backToTopBtn">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+ 
+
+  <script>
+    // Script pour le menu responsive
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const navTabs = document.getElementById('navTabs');
+      navTabs.classList.toggle('active');
+      
+      // Changer l'icône
+      const icon = this.querySelector('i');
+      if (navTabs.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Script pour le bouton Back to Top
+    document.getElementById('backToTopBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Fonction pour afficher/masquer le bouton Back to Top
+    window.addEventListener('scroll', function() {
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    // Script pour le popup WhatsApp
+    document.addEventListener('DOMContentLoaded', function() {
+      const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+      const closeMiniPopup = document.getElementById('closeMiniPopup');
+      const whatsappBubble = document.getElementById('whatsappBubble');
+      
+      // Vérifier si le popup a déjà été fermé
+      const hasClosedPopup = localStorage.getItem('whatsappPopupClosed');
+      
+      // Si le popup n'a pas été fermé, l'afficher après 2 secondes
+      if (!hasClosedPopup) {
+        setTimeout(function() {
+          whatsappMiniPopup.style.display = 'block';
+        }, 2000);
+      } else {
+        whatsappMiniPopup.style.display = 'none';
+      }
+      
+      // Gérer le clic sur la croix de fermeture
+      closeMiniPopup.addEventListener('click', function(e) {
+        e.stopPropagation();
+        whatsappMiniPopup.style.display = 'none';
+        localStorage.setItem('whatsappPopupClosed', 'true');
+      });
+
+      // Gérer le clic sur la bulle WhatsApp
+      whatsappBubble.addEventListener('click', function() {
+        window.open('https://wa.me/233536725050', '_blank');
+        // Masquer le popup après avoir cliqué
+        whatsappMiniPopup.style.display = 'none';
+        localStorage.setItem('whatsappPopupClosed', 'true');
+      });
+
+      // Permettre de réafficher le popup après 24 heures
+      setTimeout(function() {
+        localStorage.removeItem('whatsappPopupClosed');
+      }, 5 * 60 * 1000); // 24 heures
+    });
+
+    // Fonction pour fermer manuellement le popup (au cas où)
+    function closeWhatsAppPopup() {
+      const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+      whatsappMiniPopup.style.display = 'none';
+      localStorage.setItem('whatsappPopupClosed', 'true');
+    }
+
+    // Fonction pour scroll vers le haut
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return false;
+    }
+  </script>
+</body>
+</html>

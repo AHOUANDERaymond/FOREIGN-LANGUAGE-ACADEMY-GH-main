@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Centre de langues à Accra spécialisé dans la formation en anglais pour francophones et en français pour anglophones. Nous proposons également des tests internationaux, des opportunités de bourses et des programmes d’études à l’étranger.">
+
+  <title>Foreign Language Academy GH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="logo_fla.jpg">
+
+  <style>
+    /* Styles de base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: white;
+      color: black;
+      line-height: 1.6;
+    }
+    
+    /* Barre de navigation améliorée */
+    .navbar {
+      background: linear-gradient(135deg, #0d0982 0%, #1a15a0 100%);
+      color: white;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(13, 9, 130, 0.2);
+      position: relative;
+      z-index: 100;
+    }
+    
+    .navbar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #eb9234, #0d0982);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .nav-tabs {
+      display: flex;
+      list-style: none;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-tab {
+      position: relative;
+    }
+    
+    .nav-tab a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 0.8rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 0.9rem;
+    }
+    
+    .nav-tab a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #eb9234;
+    }
+    
+    .nav-tab a.active {
+      color: #eb9234;
+      font-weight: 600;
+    }
+    
+    .nav-tab a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #eb9234;
+    }
+    
+    /* Styles pour le logo et le nom */
+    .app-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      padding: 0.5rem 0;
+    }
+    
+    .logo {
+      height: 50px;
+      width: auto;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    }
+    
+    @media (max-width: 768px) {
+      .logo {
+        height: 40px;
+      }
+      .app-name {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Section d'accueil améliorée */
+    .welcome-container {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+    
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+      animation: zoomEffect 20s infinite alternate;
+    }
+    
+    @keyframes zoomEffect {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(13, 9, 130, 0.8) 0%, rgba(26, 21, 160, 0.7) 100%);
+      z-index: -1;
+    }
+    
+    .welcome-message {
+      font-size: 2.5rem;
+      max-width: 800px;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      animation: fadeInUp 1s ease-out 0.2s forwards;
+      opacity: 0;
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .btn {
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .btn:hover::before {
+      left: 100%;
+    }
+    
+    .login-btn {
+      background-color: #eb9234;
+      color: white;
+      box-shadow: 0 4px 8px rgba(235, 146, 52, 0.3);
+    }
+    
+    .login-btn:hover {
+      background-color: #e08528;
+      transform: translateY(-2px);
+    }
+    
+    .create-btn {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+    }
+    
+    .create-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    /* Contenu principal amélioré */
+    .content {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #0d0982;
+      position: relative;
+      text-shadow: 1px 1px 2px rgba(13,9,130,0.1);
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, #0d0982, #eb9234);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    /* Grille d'articles améliorée */
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .article-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(13, 9, 130, 0.1);
+      position: relative;
+    }
+    
+    .article-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(13,9,130,0.03) 0%, rgba(235,146,52,0.03) 100%);
+      z-index: 0;
+    }
+    
+    .article-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .article-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+    
+    .article-card:hover .article-image {
+      transform: scale(1.05);
+    }
+    
+    .article-content {
+      padding: 1.5rem;
+      position: relative;
+      z-index: 1;
+      background: white;
+    }
+    
+    .article-date {
+      display: block;
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .article-title {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #0d0982;
+      transition: color 0.3s ease;
+    }
+    
+    .article-card:hover .article-title {
+      color: #eb9234;
+    }
+    
+    .article-excerpt {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .read-more {
+      color: #eb9234;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+    }
+    
+    .read-more::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #eb9234;
+      transition: width 0.3s ease;
+    }
+    
+    .read-more:hover::after {
+      width: 100%;
+    }
+    
+    .read-more::before {
+      content: '→';
+      margin-left: 5px;
+      transition: margin-left 0.3s ease;
+    }
+    
+    .read-more:hover::before {
+      margin-left: 10px;
+    }
+    
+    /* Section Programme améliorée */
+    .program-section {
+      background: linear-gradient(135deg, #0d0982 0%, #120d9a 100%);
+      color: white;
+      padding: 4rem 2rem;
+      margin: 4rem 0;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(13,9,130,0.2);
+    }
+    
+    .program-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .program-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    
+    .program-subtitle {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+    
+    .program-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+    
+    .program-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(235, 146, 52, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .program-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.15);
+    }
+    
+    .program-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #eb9234;
+      transition: transform 0.3s ease;
+    }
+    
+    .program-item:hover .program-icon {
+      transform: scale(1.1);
+    }
+    
+    .program-name {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .program-desc {
+      opacity: 0.9;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background-color: #eb9234;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(235, 146, 52, 0.4);
+    }
+    
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: 0.5s;
+    }
+    
+    .cta-button:hover {
+      background-color: #e08528;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(235, 146, 52, 0.5);
+    }
+    
+    .cta-button:hover::before {
+      left: 100%;
+    }
+    
+    /* Section Hébergement améliorée */
+    .housing-section {
+      background-color: white;
+      padding: 4rem 2rem;
+      margin: 4rem 0;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(13, 9, 130, 0.1);
+      position: relative;
+    }
+    
+    .housing-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #eb9234, #0d0982);
+      border-radius: 10px 10px 0 0;
+    }
+    
+    .housing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .housing-card {
+      border: 1px solid rgba(13, 9, 130, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: white;
+      position: relative;
+    }
+    
+    .housing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(13,9,130,0.03) 0%, rgba(235,146,52,0.03) 100%);
+      z-index: 0;
+    }
+    
+    .housing-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .housing-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+    
+    .housing-card:hover .housing-image {
+      transform: scale(1.05);
+    }
+    
+    .housing-content {
+      padding: 1.5rem;
+      position: relative;
+      z-index: 1;
+      background: white;
+    }
+    
+    .housing-title {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #0d0982;
+      transition: color 0.3s ease;
+    }
+    
+    .housing-card:hover .housing-title {
+      color: #eb9234;
+    }
+    
+    .housing-price {
+      font-weight: 600;
+      color: #eb9234;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .housing-desc {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Nouvelle section Carrousel */
+    .student-carousel {
+      width: 100%;
+      margin: 4rem 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(13,9,130,0.2);
+    }
+    
+    .student-slides {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+    
+    .student-slide {
+      min-width: 100%;
+      position: relative;
+    }
+    
+    .student-slide img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .student-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(13,9,130,0.8), transparent);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .student-caption h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    .student-caption p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .student-btn {
+      display: inline-block;
+      background-color: #eb9234;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .student-btn:hover {
+      background-color: #e08528;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(235,146,52,0.4);
+    }
+    
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+    
+    .carousel-btn {
+      background: rgba(255,255,255,0.3);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 1rem;
+    }
+    
+    .carousel-btn:hover {
+      background: rgba(235,146,52,0.8);
+    }
+    
+    .carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 10;
+    }
+    
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .dot.active {
+      background: #eb9234;
+      transform: scale(1.2);
+    }
+    
+    /* Nouvelle section Statistiques */
+    .stats-section {
+      background: linear-gradient(rgba(13, 9, 130, 0.9), rgba(13, 9, 130, 0.9)), 
+                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 5rem 2rem;
+      margin: 4rem 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 15px 30px rgba(13, 9, 130, 0.2);
+    }
+
+    .stats-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(235, 146, 52, 0.1) 0%, rgba(13, 9, 130, 0.7) 100%);
+      z-index: 0;
+    }
+
+    .stats-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .stats-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: #eb9234;
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .stat-icon {
+      font-size: 3rem;
+      color: #eb9234;
+      margin-bottom: 1rem;
+    }
+
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin: 1rem 0;
+      background: linear-gradient(to right, #eb9234, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .stat-number::after {
+      content: '+';
+      position: absolute;
+      right: -1rem;
+      top: 0;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .stat-label {
+      font-size: 1.2rem;
+      color: white;
+      opacity: 0.9;
+    }
+
+    /* Pied de page amélioré */
+    .app-footer {
+      background: linear-gradient(135deg, #0d0982 0%, #080561 100%);
+      color: white;
+      padding: 3rem 2rem;
+      position: relative;
+    }
+    
+    .app-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #eb9234, #0d0982);
+    }
+    
+    .footer-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-tab {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .tab-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #eb9234;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .tab-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: #eb9234;
+    }
+    
+    .tab-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .tab-content a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-left: 1rem;
+    }
+    
+    .tab-content a::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #eb9234;
+    }
+    
+    .tab-content a:hover {
+      color: white;
+      padding-left: 1.5rem;
+    }
+
+    /* Footer guide */
+    .guide-footer {
+      background: #222;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .footer-buttons {
+      margin-top: 1rem;
+    }
+    
+    .back-to-top {
+      display: inline-block;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      .nav-tabs {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(13, 9, 130, 0.95);
+      }
+      
+      .nav-tabs.active {
+        display: flex;
+      }
+      
+      .nav-tab {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav-tab a {
+        padding: 1rem;
+      }
+      
+      .welcome-message {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .welcome-message {
+        font-size: 2rem;
+        padding: 0 1rem;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+        width: 80%;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+      
+      .program-features, .housing-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .student-slide img {
+        height: 400px;
+      }
+      
+      .student-caption h3 {
+        font-size: 1.5rem;
+      }
+      
+      .student-caption p {
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .nav-tab a {
+        padding: 0.8rem 0;
+      }
+      
+      .student-slide img {
+        height: 300px;
+      }
+      
+      .student-caption {
+        padding: 1rem;
+      }
+      
+      .student-caption h3 {
+        font-size: 1.3rem;
+      }
+    }
+
+   /* Styles pour le bouton Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: white;
+      border: 5px solid #3498db;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-to-top:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      border-color: #2980b9;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-top i {
+      color: #e74c3c;
+      font-size: 24px;
+    }
+
+  
+    /* Styles pour le popup WhatsApp */
+    .whatsapp-mini-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      animation: float 3s ease-in-out infinite;
+      display: block; /* Afficher par défaut pour test */
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .whatsapp-bubble {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-radius: 50px;
+      padding: 15px 25px;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      backdrop-filter: blur(10px);
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+      50% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.5); }
+      100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+    }
+    
+    .whatsapp-bubble:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-icon-mini {
+      font-size: 28px;
+      color: white;
+    }
+    
+    .whatsapp-text {
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    .whatsapp-number {
+      font-size: 16px;
+      font-weight: 700;
+      display: block;
+      margin-top: 3px;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .whatsapp-link-inline {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .whatsapp-link-inline:hover {
+      text-decoration: underline;
+    }
+    
+    .close-mini-popup {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #ff4757;
+      color: white;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
+      z-index: 1001;
+    }
+    
+    .close-mini-popup:hover {
+      background: #ff3742;
+    }
+
+    .back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border: 5px solid #3498db;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  /* Ajoutez cette ligne pour cacher par défaut */
+  display: none;
+}
+    
+  </style>
+</head>
+<body>
+  <!-- Barre de navigation avec menu responsive -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="app-name">
+        <img src="logo_fla.jpg" alt="Logo FLA" class="logo">
+        <span>Foreign Language Academy GH</span>
+      </h1>
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-tabs" id="navTabs">
+      <li class="nav-tab"><a href="index.html">Home</a></li>
+      <li class="nav-tab"><a href="programmes.html">Programmes</a></li>
+      <li class="nav-tab"><a href="extra-scolaire.html">Immersion</a></li>
+      <li class="nav-tab"><a href="vie-au-ghana.html">Vivre au Ghana</a></li>
+      <!-- <li class="nav-tab"><a href="etudes-bourses.html">Études à l'étranger</a></li> -->
+      <li class="nav-tab"><a href="alumini.html">Témoignages</a></li>
+      <li class="nav-tab"><a href="contactez-nous.html">Contacts</a></li>
+    </ul>
+    </div>
+  </nav>
+
+  <!-- Section d'accueil -->
+  <div class="welcome-container">
+    <div class="background-image"></div>
+    <div class="overlay"></div>
+    <p class="welcome-message">Votre voyage vers la maîtrise des langues commence ici</p>
+    <div class="action-buttons">
+      <a href="programmes.html" class="btn create-btn">Nos programmes</a>
+      <a href="https://fla-gh.blogspot.com/search/label/Notre%20actualit%C3%A9/" class="btn create-btn" target="_blank">Nos actualités</a>
+      <a href="vie-au-ghana.html" class="btn create-btn">La vie au Ghana</a>
+      <a href="accomplissements.html" class="btn create-btn">Nos accomplissements</a>
+
+
+
+    </div>
+  </div>
+  
+  <!-- Contenu principal -->
+  <div class="content">
+    <h2 class="section-title">FOREIGN LANGUAGE ACADEMY GH</h2>
+    
+    <div class="article-grid">
+      <!-- Article 1 -->
+      <div class="article-card">
+        <div class="article-image" style="background-image: url('headway2.jpg');"></div>
+        <div class="article-content">
+          <h3 class="article-title">Formation en langues étrangères</h3>
+          <p class="article-excerpt">Apprenez l'anglais et le français avec nos méthodes pédagogiques innovantes et nos enseignants qualifiés.</p>
+          <a href="https://fla-gh.blogspot.com/search/label/Notre%20M%C3%A9thodologie" class="read-more">En savoir plus</a>
+        </div>
+      </div>
+      
+      <!-- Article 2 -->
+      <div class="article-card">
+        <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+        <div class="article-content">
+          <h3 class="article-title">Traduction et interpretation de documents</h3>
+          <p class="article-excerpt">Nous traduisons vos documents en plusieurs langues, avec fidélité et clarté, pour vos besoins académiques, professionnels et administratifs.</p>
+        </div>
+      </div>
+      
+      <!-- Article 3 -->
+      <div class="article-card">
+        <div class="article-image" style="background-image: url('study.jpg');"></div>
+        <div class="article-content">
+          <h3 class="article-title">
+            <a href="etudes-bourses.html" style="text-decoration: none; color: inherit;">
+              Services d'accompagnement pour études à l'étranger
+            </a>
+          </h3>       
+             <p class="article-excerpt">Nous vous guidons pour étudier aux USA et en Malaisie avec notre expertise...</p>
+        </div>
+      </div>
+
+      <!-- Article 4 -->
+      <div class="article-card">
+        <div class="article-image" style="background-image: url('french-image.png');"></div>
+        <div class="article-content">
+          <h3 class="article-title">Programme de français pour anglophones</h3>
+          <p class="article-excerpt">Découvrez notre approche immersive pour apprendre le français rapidement et efficacement.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section Programme -->
+    <div class="program-section">
+      <span class="feature-badge">Notre Programme</span>
+      <h2 class="program-title">PROGRAMME DE FORMATION</h2>
+      <p class="program-subtitle">Faites-vous former sur la durée de votre choix; à partir d'un (1) mois jusqu'à douze (12) mois. Cours réguliers ou intensifs.</p>
+      
+      <div class="program-features">
+        <div class="program-item">
+          <div class="program-icon"><i class="fas fa-clock"></i></div>
+          <h3 class="program-name">Durée flexible</h3>
+          <p class="program-desc">De 1 à 12 mois selon vos besoins et disponibilités.</p>
+        </div>
+        
+        <div class="program-item">
+          <div class="program-icon"><i class="fas fa-book"></i></div>
+          <h3 class="program-name">Méthode Headway</h3>
+          <p class="program-desc">Matériel pédagogique de l'Université d'Oxford pour un apprentissage optimal.</p>
+        </div>
+        
+        <div class="program-item">
+          <div class="program-icon"><i class="fas fa-certificate"></i></div>
+          <h3 class="program-name">Certification</h3>
+          <p class="program-desc">Attestation de fin de formation et préparation aux tests internationaux.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Section Extra-scolaire -->
+    <div class="article-card" style="max-width: 1000px; margin: 0 auto 4rem;">
+      <div class="article-image" style="background-image: url('sortie2.JPG'); height: 300px;"></div>
+      <div class="article-content">
+        <h3 class="article-title">Programme d'immersion</h3>
+        <p class="article-excerpt">La langue s'acquiert par la pratique. Nous vous exposons à l'anglais dans des situations réelles à travers des activités culturelles, des concerts et des sorties touristiques.</p>
+        <a href="extra-scolaire.html" class="read-more">Découvrir nos activités</a>
+      </div>
+    </div>
+
+    <!-- Nouveau Carrousel Étudiants -->
+    <div class="student-carousel">
+      <div class="student-slides" id="student-slides">
+        <!-- Slide 1 - Étudiants en classe -->
+        <div class="student-slide">
+          <img src="immersion.jpg" alt="Étudiants en classe">
+          <div class="student-caption">
+            <h3>Apprentissage en immersion</h3>
+          </div>
+        </div>
+        
+        <!-- Slide 2 - Tourisme éducatif -->
+        <div class="student-slide">
+          <img src="sorrrrtie.jpg" alt="Tourisme éducatif">
+          <div class="student-caption">
+            <h3>Excursions culturelles</h3>
+          </div>
+        </div>
+        
+        <!-- Slide 3 - Colonies de vacances -->
+        <div class="student-slide">
+          <img src="ambassade.jpg" alt="Colonies de vacances">
+          <div class="student-caption">
+            <h3>Pratique à l'ambassade des États-Unis à Accra</h3>
+          </div>
+        </div>
+        
+        <!-- Slide 4 - Étudiant en Malaisie -->
+        <div class="student-slide">
+          <img src="student.webp" alt="Étudiant en Malaisie">
+          <div class="student-caption">
+            <h3><a href="etudes-bourses.html">Études à l'étranger</a></h3>
+          </div>
+        </div>
+      </div>
+      
+      <div class="carousel-nav">
+        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      
+      <div class="carousel-dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+    
+    <!-- Section Hébergement -->
+    <div class="housing-section">
+      <h2 class="section-title">OPTIONS DE LOGEMENTS</h2>
+      
+      <div class="housing-grid">
+        <!-- Option 1 -->
+        <div class="housing-card">
+          <div class="housing-image" style="background-image: url('campus.jpg');"></div>
+          <div class="housing-content">
+            <h3 class="housing-title">Studio sur campus</h3>
+            <p class="housing-desc">Chambre avec lit, ventilateur, table d'étude et chaise.</p>
+          </div>
+        </div>
+        
+        <!-- Option 2 -->
+        <div class="housing-card">
+          <div class="housing-image" style="background-image: url('120k.jpg');"></div>
+          <div class="housing-content">
+            <h3 class="housing-title">Studio climatisé</h3>
+            <p class="housing-desc">Chambre climatisée avec télévision, frigo, douche et toilettes privées.</p>
+          </div>
+        </div>
+        
+        <!-- Option 3 -->
+        <div class="housing-card">
+          <div class="housing-image" style="background-image: url('viv-villa.jpg');"></div>
+          <div class="housing-content">
+            <h3 class="housing-title">Studio américain</h3>
+            <p class="housing-desc">Studio entièrement équipé avec tout le confort moderne pour un séjour premium.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- POPUP WHATSAPP MINIMALISTE -->
+  <div class="whatsapp-mini-popup" id="whatsappMiniPopup">
+    <div class="whatsapp-bubble" id="whatsappBubble">
+      <i class="fab fa-whatsapp whatsapp-icon-mini"></i>
+      <div class="whatsapp-text">
+        📱 Un groupe WhatsApp de cours d'anglais 
+             gratuit et sans engagement? 
+             
+        <span class="whatsapp-number">
+          <a href="https://chat.whatsapp.com/G40JEhaukk62vxJGZp1FEe" target="_blank" class="whatsapp-link-inline">
+            REJOINDRE
+          </a>
+          <a href="https://wa.me/233536725050" target="_blank" class="whatsapp-link-inline">
+            +233 536725050
+          </a>
+        </span>
+      </div>
+    </div>
+    <!-- BOUTON DE FERMETURE AJOUTÉ ICI -->
+    <div class="close-mini-popup" id="closeMiniPopup">
+      <i class="fas fa-times"></i>
+    </div>
+  </div>
+
+
+<!-- Bouton Back to Top -->
+  <a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+
+  <!-- Pied de page -->
+  <footer class="app-footer">
+    <div class="footer-tabs">
+      <!-- Onglet About -->
+      <div class="footer-tab">
+        <div class="tab-header">
+          <i class="fas fa-info-circle"></i>
+          <span>À PROPOS</span>
+        </div>
+        <div class="tab-content">
+          <a href="index.html">Notre académie</a>
+          <a href="index.html">Notre équipe</a>
+          <a href="alumini.html">Alumini</a>
+        </div>
+      </div>
+      
+      <!-- Onglet Programmes -->
+      <div class="footer-tab">
+        <div class="tab-header">
+          <i class="fas fa-book"></i>
+          <span>PROGRAMMES</span>
+        </div>
+        <div class="tab-content">
+          <a href="programmes.html">Anglais</a>
+          <a href="#">Français</a>
+          <a href="etudes-bourses.html">Études à l'étranger</a>
+        </div>
+      </div>
+      
+      <!-- Onglet Contact -->
+      <div class="footer-tab">
+        <div class="tab-header">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>CONTACTS</span>
+        </div>
+        <div class="tab-content">
+          <a href="contactez-nous.html">Nous contacter</a>
+          <a href="map.html">Locallisation</a>
+        </div>
+      </div>
+      
+      <!-- Onglet Réservations -->
+      <div class="footer-tab">
+        <div class="tab-header">
+          <i class="fas fa-calendar-alt"></i>
+          <span>RÉSERVATIONS</span>
+        </div>
+        <div class="tab-content">
+          <a href="fiche_de_preinscription.html">S'inscrire</a>
+          <a href="housing.html">Hébergement</a>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+      <p>Foreign Language Academy GH © 2025 | Numéro d'agrément : CS152770924</p>
+      <p>Ashongman Estates, Accra Ghana | +233 536725050 /+233 202165231</p>
+      <p>flaghaccra@gmail.com</p>
+    </div>
+  </footer>
+  <!-- <footer class="guide-footer">
+    <div class="footer-buttons">
+        <a href="#" class="back-to-top" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i> 
+        </a>
+    </div>
+  </footer> -->
+  
+  <script>
+    // Animation des compteurs
+    function animateValue(id, start, end, duration) {
+      const obj = document.getElementById(id);
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Démarrer les animations quand la section est visible
+    function startCounters() {
+      animateValue("students-count", 0, 1500, 2000);
+      animateValue("countries-count", 0, 15, 1500);
+      animateValue("teachers-count", 0, 28, 1500);
+      animateValue("abroad-count", 0, 320, 2000);
+    }
+
+    // Observer pour déclencher l'animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const statsSection = document.querySelector('.stats-section');
+      
+      if (statsSection) {
+        const observer = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) {
+            startCounters();
+            observer.disconnect();
+          }
+        }, { threshold: 0.5 });
+
+        observer.observe(statsSection);
+      }
+      
+      // Script pour le carrousel
+      const slides = document.querySelector('.student-slides');
+      const slideItems = document.querySelectorAll('.student-slide');
+      const dots = document.querySelectorAll('.dot');
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      
+      let currentIndex = 0;
+      const slideCount = slideItems.length;
+      
+      function updateCarousel() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Mettre à jour les dots
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+      }
+      
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateCarousel();
+      }
+      
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateCarousel();
+      }
+      
+      // Navigation avec les boutons
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+      
+      // Navigation avec les dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateCarousel();
+        });
+      });
+      
+      // Défilement automatique
+      let slideInterval = setInterval(nextSlide, 2000);
+      
+      // Arrêter le défilement automatique quand la souris est sur le carrousel
+      const carousel = document.querySelector('.student-carousel');
+      carousel.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+      });
+      
+      carousel.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, 2000);
+      });
+
+      // Script pour le menu responsive
+      // document.getElementById('menuToggle').addEventListener('click', function() {
+      //   const navTabs = document.getElementById('navTabs');
+      //   navTabs.classList.toggle('active');
+        
+      //   // Changer l'icône
+      //   const icon = this.querySelector('i');
+      //   if (navTabs.classList.contains('active')) {
+      //     icon.classList.remove('fa-bars');
+      //     icon.classList.add('fa-times');
+      //   } else {
+      //     icon.classList.remove('fa-times');
+      //     icon.classList.add('fa-bars');
+      //   }
+      // });
+
+      // Fonction pour remonter en haut de page
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    });
+    // Script pour le bouton Back to Top
+    document.querySelector('.back-to-top').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+
+   // Script pour le menu responsive
+document.getElementById('menuToggle').addEventListener('click', function() {
+  const navTabs = document.getElementById('navTabs');
+  navTabs.classList.toggle('active');
+  
+  // Changer l'icône
+  const icon = this.querySelector('i');
+  if (navTabs.classList.contains('active')) {
+    icon.classList.remove('fa-bars');
+    icon.classList.add('fa-times');
+  } else {
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  }
+});
+
+// Script pour le popup WhatsApp
+document.addEventListener('DOMContentLoaded', function() {
+  const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+  const closeMiniPopup = document.getElementById('closeMiniPopup');
+  const whatsappBubble = document.getElementById('whatsappBubble');
+  
+  // Vérifier si le popup a déjà été fermé
+  const hasClosedPopup = localStorage.getItem('whatsappPopupClosed');
+  
+  // Si le popup n'a pas été fermé, l'afficher après 2 secondes
+  if (!hasClosedPopup) {
+    setTimeout(function() {
+      whatsappMiniPopup.style.display = 'block';
+    }, 2000);
+  } else {
+    whatsappMiniPopup.style.display = 'none';
+  }
+  
+  // Gérer le clic sur la croix de fermeture
+  closeMiniPopup.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeWhatsAppPopup();
+  });
+
+  // Gérer le clic sur la bulle WhatsApp
+  whatsappBubble.addEventListener('click', function() {
+    window.open('https://wa.me/233536725050', '_blank');
+    // Masquer le popup après avoir cliqué
+    closeWhatsAppPopup();
+  });
+
+  // Permettre de réafficher le popup après 5 minutes (300000 ms)
+  setTimeout(function() {
+    localStorage.removeItem('whatsappPopupClosed');
+  }, 1 * 60 * 1000); // 5 minutes
+});
+
+// Fonction pour fermer manuellement le popup
+function closeWhatsAppPopup() {
+  const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+  whatsappMiniPopup.style.display = 'none';
+  localStorage.setItem('whatsappPopupClosed', 'true');
+}
+
+// Script pour le bouton Back to Top
+document.querySelector('.back-to-top').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Afficher/masquer le bouton Back to Top selon le défilement
+window.addEventListener('scroll', function() {
+  const backToTopButton = document.querySelector('.back-to-top');
+  if (window.scrollY > 300) {
+    backToTopButton.style.display = 'flex';
+  } else {
+    backToTopButton.style.display = 'none';
+  }
+});
+  </script>
+</body>
+</html>

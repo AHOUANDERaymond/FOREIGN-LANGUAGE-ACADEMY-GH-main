@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nos Accomplissements | Foreign Language Academy GH</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Font pour une meilleure typographie -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ----- RESET & BASE ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f6fc;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      color: #1e1e2f;
+      line-height: 1.6;
+    }
+
+    /* ----- HERO (cohérent avec l'accueil) ----- */
+    .hero {
+      height: 40vh;
+      min-height: 280px;
+      background: linear-gradient(135deg, rgba(13, 9, 130, 0.85), rgba(26, 21, 160, 0.80)),
+                  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" opacity="0.12"><circle cx="150" cy="150" r="90" fill="%23ffffff"/><circle cx="650" cy="450" r="130" fill="%23ffffff"/><circle cx="700" cy="100" r="70" fill="%23ffffff"/><circle cx="100" cy="500" r="110" fill="%23ffffff"/></svg>') center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 1.5rem 2rem;
+      border-bottom: 5px solid #eb9234;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 650px;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    /* ----- CONTAINER ----- */
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 0 3rem;
+    }
+
+    /* ----- TITRE SECTION ----- */
+    .title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #0d0982;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #0d0982, #eb9234);
+      margin: 0.6rem auto 0;
+      border-radius: 4px;
+    }
+
+    /* ----- GRILLE CARTES ----- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(13, 9, 130, 0.07);
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(13, 9, 130, 0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(13, 9, 130, 0.12);
+    }
+
+    /* ----- REMPLACEMENT IMAGE : icône + dégradé élégant ----- */
+    .card-visual {
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.8rem;
+      color: white;
+      position: relative;
+      background: linear-gradient(145deg, #0d0982, #322bc0);
+      transition: 0.2s;
+    }
+
+    /* Dégradés distincts pour chaque carte */
+    .card:nth-child(1) .card-visual {
+      background: linear-gradient(145deg, #0d0982, #3b33c9);
+    }
+    .card:nth-child(2) .card-visual {
+      background: linear-gradient(145deg, #14105c, #eb9234);
+    }
+    .card:nth-child(3) .card-visual {
+      background: linear-gradient(145deg, #0b2b5e, #1f8a8a);
+    }
+
+    /* Éléments décoratifs */
+    .card-visual::before {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+      top: -30px;
+      right: -30px;
+    }
+    .card-visual::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 50%;
+      bottom: -20px;
+      left: -20px;
+    }
+
+    .card-visual i {
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    }
+
+    .card-visual .tag {
+      position: absolute;
+      bottom: 14px;
+      right: 18px;
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(4px);
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 2;
+    }
+
+    /* ----- CONTENU CARTE ----- */
+    .content {
+      padding: 1.5rem 1.6rem 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content h3 {
+      color: #0d0982;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      line-height: 1.4;
+    }
+
+    .content p {
+      color: #3d3d4f;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      flex: 1;
+      line-height: 1.6;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #0d0982;
+      color: #fff;
+      padding: 0.25rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      align-self: flex-start;
+      background: linear-gradient(145deg, #0d0982, #2b26c4);
+      box-shadow: 0 3px 8px rgba(13, 9, 130, 0.15);
+    }
+
+    /* ----- STATS (minimal) ----- */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.8rem;
+      text-align: center;
+      margin: 2.5rem 0 1rem;
+    }
+
+    .number {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #eb9234;
+      line-height: 1.2;
+    }
+
+    .label {
+      font-size: 1rem;
+      color: #2d2d44;
+      font-weight: 500;
+    }
+
+    /* ----- CTA ----- */
+    .cta {
+      text-align: center;
+      padding: 2.8rem 1.5rem;
+      background: #eef0fa;
+      border-radius: 32px;
+      margin: 2.5rem 0 0.5rem;
+      border: 1px solid rgba(13, 9, 130, 0.06);
+    }
+
+    .cta h2 {
+      color: #0d0982;
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 2.6rem;
+      background: #eb9234;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.25s ease;
+      box-shadow: 0 6px 18px rgba(235, 146, 52, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn:hover {
+      background: #d97f22;
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(235, 146, 52, 0.4);
+    }
+
+    .btn i {
+      margin-right: 8px;
+    }
+
+    /* ----- FOOTER (simple) ----- */
+    footer {
+      background: #0d0982;
+      color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      padding: 1.8rem 1.5rem;
+      margin-top: 2.5rem;
+      border-top: 4px solid #eb9234;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 0.95rem;
+        padding: 0.4rem 1.2rem;
+      }
+      .title {
+        font-size: 1.7rem;
+      }
+      .card-visual {
+        height: 140px;
+        font-size: 3rem;
+      }
+      .content h3 {
+        font-size: 1rem;
+      }
+      .cta h2 {
+        font-size: 1.3rem;
+      }
+      .number {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        height: 32vh;
+        min-height: 200px;
+      }
+      .grid {
+        gap: 1.2rem;
+      }
+      .content {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Nos Accomplissements</h1>
+    <p>Des réalisations qui reflètent notre engagement pour l'excellence linguistique</p>
+  </section>
+
+  <!-- ===== CONTENU ===== -->
+  <div class="container">
+
+    <h2 class="title">Quelques réalisations marquantes</h2>
+
+    <div class="grid">
+
+      <!-- CARTE 1 : Cambridge -->
+      <div class="card">
+        <div class="card-visual">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <span class="tag"><i class="fas fa-graduation-cap" style="margin-right: 4px;"></i>Cambridge</span>
+        </div>
+        <div class="content">
+          <h3>Mise en place du programme Cambridge – Lili Prune (Burkina)</h3>
+          <p>Formation des enseignants d'anglais aux techniques pédagogiques Cambridge Global English pour les niveaux primaire et maternelle.</p>
+          <span class="badge">2025 – 2026</span>
+        </div>
+      </div>
+
+      <!-- CARTE 2 : Sommet d'Accra -->
+      <div class="card">
+        <div class="card-visual">
+          <i class="fas fa-handshake"></i>
+          <span class="tag"><i class="fas fa-flag" style="margin-right: 4px;"></i>Accra 2025</span>
+        </div>
+        <div class="content">
+          <h3>Interprétation au Sommet Africain des Partis Politiques 2025</h3>
+          <p>Nous avons assuré l'interprétation professionnelle pour faciliter les échanges entre participants de ce sommet international à Accra (Ghana).</p>
+          <span class="badge">Accra 2025</span>
+        </div>
+      </div>
+
+      <!-- CARTE 3 : Ambassade / Diplomatie -->
+      <div class="card">
+        <div class="card-visual">
+          <i class="fas fa-globe-africa"></i>
+          <span class="tag"><i class="fas fa-building" style="margin-right: 4px;"></i>Diplomatie</span>
+        </div>
+        <div class="content">
+          <h3>Visite à l'Ambassade des États-Unis</h3>
+          <p>Une immersion diplomatique pour nos étudiants, avec découverte des procédures internationales, échanges culturels et opportunités académiques.</p>
+          <span class="badge">Chaque mois</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== STATS ===== -->
+    <div class="stats-grid">
+      <div>
+        <div class="number">30+</div>
+        <div class="label">Projets réalisés</div>
+      </div>
+      <div>
+        <div class="number">150+</div>
+        <div class="label">Étudiants formés</div>
+      </div>
+      <div>
+        <div class="number">13</div>
+        <div class="label">Pays partenaires</div>
+      </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <div class="cta">
+      <h2>Vous serez peut-être notre prochaine réussite !</h2>
+      <a href="fiche_de_preinscription.html" class="btn">
+        <i class="fas fa-pen-fancy"></i> Je m'inscris maintenant
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © 2025 Foreign Language Academy GH<br />
+    Ashongman Estates • Accra • Ghana
+  </footer>
+
+</body>
+</html>

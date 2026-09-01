@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Témoignages Alumni - Foreign Language Academy GH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  
+  <style>
+    /* Styles de base - Repris de votre CSS existant */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: white;
+      color: black;
+      line-height: 1.6;
+    }
+    
+    /* Barre de navigation responsive - Identique à programmes.html */
+    .navbar {
+      background: linear-gradient(135deg, #0d0982 0%, #1a15a0 100%);
+      color: white;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(13, 9, 130, 0.2);
+      position: relative;
+      z-index: 100;
+    }
+    
+    .navbar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #eb9234, #0d0982);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .app-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      padding: 0.5rem 0;
+    }
+    
+    .logo {
+      height: 50px;
+      width: auto;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .nav-tabs {
+      display: flex;
+      list-style: none;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-tab {
+      position: relative;
+    }
+    
+    .nav-tab a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 0.8rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 0.9rem;
+    }
+    
+    .nav-tab a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #eb9234;
+    }
+    
+    .nav-tab a.active {
+      color: #eb9234;
+      font-weight: 600;
+    }
+    
+    .nav-tab a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #eb9234;
+    }
+    
+    /* Contenu principal */
+    .content {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #0d0982;
+      position: relative;
+      text-shadow: 1px 1px 2px rgba(13,9,130,0.1);
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, #0d0982, #eb9234);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    /* Section Alumni */
+    .alumni-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      color: #555;
+      font-size: 1.1rem;
+    }
+    
+    /* Formulaire de témoignage */
+    .testimonial-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 4rem;
+      border: 1px solid rgba(13,9,130,0.1);
+    }
+    
+    .form-title {
+      text-align: center;
+      color: #0d0982;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #0d0982;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    
+    .form-control:focus {
+      border-color: #0d0982;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(13,9,130,0.1);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, #0d0982 0%, #1a15a0 100%);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 4px 8px rgba(13,9,130,0.2);
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(13,9,130,0.3);
+    }
+    
+    /* Témoignages existants */
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border: 1px solid rgba(13,9,130,0.1);
+      position: relative;
+      transition: transform 0.3s;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    
+    .testimonial-photo {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .testimonial-photo::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-size: 4rem;
+      color: rgba(255,255,255,0.3);
+      font-family: Georgia, serif;
+      line-height: 1;
+      z-index: 1;
+    }
+    
+    .testimonial-content {
+      padding: 1.5rem;
+      position: relative;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #0d0982;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 1rem;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .author-info h4 {
+      color: #0d0982;
+      margin-bottom: 0.2rem;
+    }
+    
+    .author-info p {
+      color: #777;
+      font-size: 0.9rem;
+    }
+    
+    .testimonial-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+      font-size: 0.8rem;
+      color: #888;
+    }
+    
+    /* Section CTA */
+    .alumni-cta {
+      background: linear-gradient(135deg, rgba(13,9,130,0.05) 0%, rgba(235,146,52,0.05) 100%);
+      padding: 3rem;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 4rem;
+      border: 1px dashed #0d0982;
+    }
+    
+    .alumni-cta h3 {
+      color: #0d0982;
+      margin-bottom: 1rem;
+    }
+    
+    .alumni-cta p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #555;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .cta-btn {
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .primary-btn {
+      background-color: #0d0982;
+      color: white;
+      box-shadow: 0 4px 8px rgba(13,9,130,0.2);
+    }
+    
+    .primary-btn:hover {
+      background-color: #120d9a;
+      transform: translateY(-2px);
+    }
+    
+    .secondary-btn {
+      background-color: transparent;
+      color: #0d0982;
+      border: 2px solid #0d0982;
+    }
+    
+    .secondary-btn:hover {
+      background-color: rgba(13,9,130,0.05);
+      transform: translateY(-2px);
+    }
+    
+    /* Pied de page - Identique à votre page principale */
+    .app-footer {
+      background: linear-gradient(135deg, #0d0982 0%, #080561 100%);
+      color: white;
+      padding: 3rem 2rem;
+      position: relative;
+    }
+    
+    .app-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #eb9234, #0d0982);
+    }
+    
+    .footer-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-tab {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .tab-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #eb9234;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .tab-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: #eb9234;
+    }
+    
+    .tab-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .tab-content a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-left: 1rem;
+    }
+    
+    .tab-content a::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #eb9234;
+    }
+    
+    .tab-content a:hover {
+      color: white;
+      padding-left: 1.5rem;
+    }
+
+    /* Styles pour le bouton Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: white;
+      border: 5px solid #3498db;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-to-top:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      border-color: #2980b9;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-top i {
+      color: #e74c3c;
+      font-size: 24px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      .nav-tabs {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(13, 9, 130, 0.95);
+      }
+      
+      .nav-tabs.active {
+        display: flex;
+      }
+      
+      .nav-tab {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav-tab a {
+        padding: 1rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .testimonials-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .cta-btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .logo {
+        height: 40px;
+      }
+      
+      .app-name {
+        font-size: 1.3rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .alumni-cta {
+        padding: 2rem 1rem;
+      }
+    }
+
+
+    
+    /* Styles pour le popup WhatsApp */
+    .whatsapp-mini-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      animation: float 3s ease-in-out infinite;
+      display: block; /* Afficher par défaut pour test */
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .whatsapp-bubble {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-radius: 50px;
+      padding: 15px 25px;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      backdrop-filter: blur(10px);
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+      50% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.5); }
+      100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+    }
+    
+    .whatsapp-bubble:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-icon-mini {
+      font-size: 28px;
+      color: white;
+    }
+    
+    .whatsapp-text {
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    .whatsapp-number {
+      font-size: 16px;
+      font-weight: 700;
+      display: block;
+      margin-top: 3px;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .whatsapp-link-inline {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .whatsapp-link-inline:hover {
+      text-decoration: underline;
+    }
+    
+    .close-mini-popup {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #ff4757;
+      color: white;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
+      z-index: 1001;
+    }
+    
+    .close-mini-popup:hover {
+      background: #ff3742;
+    }
+
+    .back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border: 5px solid #3498db;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  /* Ajoutez cette ligne pour cacher par défaut */
+  display: none;
+}
+  </style>
+</head>
+<body>
+  <!-- Barre de navigation responsive - Identique à programmes.html -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="app-name">
+        <img src="logo_fla.jpg" alt="Logo FLA" class="logo">
+        <span>Foreign Language Academy GH</span>
+      </h1> 
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-tabs" id="navTabs">
+      <li class="nav-tab"><a href="index.html">Home</a></li>
+      <li class="nav-tab"><a href="programmes.html">Programmes</a></li>
+      <li class="nav-tab"><a href="extra-scolaire.html">Immersion</a></li>
+      <li class="nav-tab"><a href="vie-au-ghana.html">Vivre au Ghana</a></li>
+      <!-- <li class="nav-tab"><a href="etudes-bourses.html">Études à l'étranger</a></li> -->
+      <li class="nav-tab"><a href="alumini.html">Témoignages</a></li>
+      <li class="nav-tab"><a href="contactez-nous.html">Contacts</a></li>
+    </ul>
+    </div>
+  </nav>
+
+  <!-- Contenu principal -->
+  <div class="content">
+    <h2 class="section-title">TÉMOIGNAGES DE NOS ALUMNI</h2>
+    
+    <p class="alumni-intro">
+      Découvrez ce que nos anciens étudiants disent de leur expérience à la Foreign Language Academy GH. 
+      Leurs réussites et témoignages sont la meilleure preuve de la qualité de notre enseignement.
+    </p>
+    
+    <div class="testimonials-container">
+      <!-- Témoignage 1 -->
+      <div class="testimonial-card">
+        <div class="testimonial-photo" style="background-image: url('bricemen.jpg');">
+        </div>
+        <div class="testimonial-content">
+          <div class="testimonial-text">
+            "I had a great experience. The teachers were kind and professional, and the lessons were very helpful. I really improved my English and gained a lot of confidence. I'm truly grateful for everything I learned there. I would highly recommend this school to anyone who wants to improve their English."☺
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-image: url('bbbb.jpg');"></div>
+            <div class="author-info">
+              <h4>Bricemen D.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+           <!-- Témoignage 2 -->
+      <div class="testimonial-card">
+        <div class="testimonial-photo" style="background-image: url('Benoit.jpg');">
+        </div>
+          <div class="testimonial-content">
+            <div class="testimonial-text">
+              "J'ai eu la chance d'étudier à la Foreign
+              Language Academy, un établissement de référence en matière d'enseignement linguistique. 
+              Mon niveau d'anglais en est la preuve, et j'en suis très fier. Grâce à eux, l'anglais n'a plus de secrets pour moi. !"
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background-image: url('Benoit.jpg');"></div>
+              <div class="author-info">
+                <h4>Marie-Benoit A.</h4>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Témoignage 2 -->
+      <div class="testimonial-card">
+        <div class="testimonial-photo" style="background-image: url('aaa.jpg');">
+        </div>
+        <div class="testimonial-content">
+          <div class="testimonial-text">
+            "Foreign language academy is the best, for those who would like to learn English i advice you guys to go there and i wish you luck 🫡"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-image: url('aaa.jpg');"></div>
+            <div class="author-info">
+              <h4>Bambola A.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Témoignage 3 -->
+      <div class="testimonial-card">
+        <div class="testimonial-photo" style="background-image: url('cyrille.jpg');">
+        </div>
+        <div class="testimonial-content">
+          <div class="testimonial-text">
+            "There is no better way to train in English, with exciting and motivating insertion methods"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-image: url('cyrille.jpg');"></div>
+            <div class="author-info">
+              <h4>Cyrille G.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Témoignage 4 -->
+      <div class="testimonial-card">
+        <div class="testimonial-photo" style="background-image: url('modibo.jpg');">
+        </div>
+        <div class="testimonial-content">
+          <div class="testimonial-text">
+            "I really enjoyed my time at Foreign Language Academy. The teachers are so nice and friendly, and they always make sure everyone understands the lessons. We didn't just learn, we had fun while learning."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-image: url('modibo.jpg');"></div>
+            <div class="author-info">
+              <h4>Modibo D.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Témoignage 5 -->
+      <div class="testimonial-card">
+        <div class="testimonial-photo" style="background-image: url('akorede.jpg');">
+        </div>
+        <div class="testimonial-content">
+          <div class="testimonial-text">
+            "I invite everybody to go to this school because there are many boats that can help you to learn English easily"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-image: url('akorede.jpg');"></div>
+            <div class="author-info">
+              <h4>Akorede T.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <!-- Formulaire pour soumettre un témoignage -->
+    <div class="testimonial-form">
+      <h3 class="form-title">Partagez votre expérience</h3>
+      <form id="alumniTestimonialForm">
+        <div class="form-group">
+          <label for="fullName">Nom complet</label>
+          <input type="text" id="fullName" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="graduationYear">Année de formation</label>
+          <input type="text" id="graduationYear" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="currentActivity">Que faites-vous actuellement ?</label>
+          <input type="text" id="currentActivity" class="form-control" required placeholder="Études, travail, etc.">
+        </div>
+        
+        <div class="form-group">
+          <label for="country">Pays actuel</label>
+          <input type="text" id="country" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="testimonial">Votre témoignage</label>
+          <textarea id="testimonial" class="form-control" required placeholder="Décrivez votre expérience à la FLA GH et comment elle a impacté votre parcours..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="photo">Photo (facultative)</label>
+          <input type="file" id="photo" class="form-control" accept="image/*">
+        </div>
+        
+        <div class="form-group">
+          <label for="profilePhoto">Photo de profil (facultative)</label>
+          <input type="file" id="profilePhoto" class="form-control" accept="image/*">
+        </div>
+        
+        <button type="submit" class="submit-btn">Soumettre mon témoignage</button>
+      </form>
+    </div>
+    
+    <!-- Section CTA -->
+    <div class="alumni-cta">
+      <h3>Faites partie de notre réseau d'alumni</h3>
+      <p>
+        Rejoignez notre communauté grandissante d'anciens étudiants à travers le monde. Bénéficiez d'avantages exclusifs et restez connectés.
+      </p>
+      <div class="cta-buttons">
+        <a href="contactez-nous.html" class="cta-btn primary-btn">Nous contacter</a>
+        <a href="programmes.html" class="cta-btn secondary-btn">Voir nos programmes</a>
+      </div>
+    </div>
+  </div>
+
+
+   <!-- POPUP WHATSAPP MINIMALISTE -->
+  <div class="whatsapp-mini-popup" id="whatsappMiniPopup">
+    <div class="whatsapp-bubble" id="whatsappBubble">
+      <i class="fab fa-whatsapp whatsapp-icon-mini"></i>
+      <div class="whatsapp-text">
+        📱 Un groupe WhatsApp de cours d'anglais 
+             gratuit et sans engagement? 
+             
+        <span class="whatsapp-number">
+          <a href="https://chat.whatsapp.com/G40JEhaukk62vxJGZp1FEe" target="_blank" class="whatsapp-link-inline">
+            REJOINDRE
+          </a>
+          <a href="https://wa.me/233536725050" target="_blank" class="whatsapp-link-inline">
+            +233 536725050
+          </a>
+        </span>
+      </div>
+    </div>
+    <!-- BOUTON DE FERMETURE AJOUTÉ ICI -->
+    <div class="close-mini-popup" id="closeMiniPopup">
+      <i class="fas fa-times"></i>
+    </div>
+  </div>
+  <!-- Bouton Back to Top -->
+  <a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+  
+  <!-- Pied de page
+  <footer class="app-footer">
+    <div class="footer-tabs">
+      <div class="footer-tab">
+        <div class="tab-header">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Nos Programmes</span>
+        </div>
+        <div class="tab-content">
+          <a href="programmes.html">Anglais Intensif</a>
+          <a href="programmes.html">Préparation aux Tests</a>
+          <a href="programmes.html">Programmes Scolaires</a>
+        </div>
+      </div>
+      
+      <div class="footer-tab">
+        <div class="tab-header">
+          <i class="fas fa-globe-africa"></i>
+          <span>Immersion</span>
+        </div>
+        <div class="tab-content">
+          <a href="extra-scolaire.html">Séjours Linguistiques</a>
+          <a href="extra-scolaire.html">Activités Culturelles</a>
+          <a href="extra-scolaire.html">Immersion Totale</a>
+        </div>
+      </div>
+      
+      <div class="footer-tab">
+        <div class="tab-header">
+          <i class="fas fa-plane-departure"></i>
+          <span>Études à l'Étranger</span>
+        </div>
+        <div class="tab-content">
+          <a href="etudes-bourses.html">Bourses d'Études</a>
+          <a href="etudes-bourses.html">Partenariats Internationaux</a>
+          <a href="etudes-bourses.html">Procédures d'Admission</a>
+        </div>
+      </div>
+      
+      <div class="footer-tab">
+        <div class="tab-header">
+          <i class="fas fa-address-book"></i>
+          <span>Contactez-nous</span>
+        </div>
+        <div class="tab-content">
+          <a href="contactez-nous.html">Adresse et Téléphone</a>
+          <a href="contactez-nous.html">Formulaire de Contact</a>
+          <a href="contactez-nous.html">Réseaux Sociaux</a>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+
+  <script>
+    // Script pour le menu responsive - Identique à programmes.html
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const navTabs = document.getElementById('navTabs');
+      navTabs.classList.toggle('active');
+      
+      // Changer l'icône
+      const icon = this.querySelector('i');
+      if (navTabs.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Script pour gérer la soumission du formulaire
+    document.getElementById('alumniTestimonialForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Récupérer les valeurs du formulaire
+      const fullName = document.getElementById('fullName').value;
+      const graduationYear = document.getElementById('graduationYear').value;
+      const currentActivity = document.getElementById('currentActivity').value;
+      const country = document.getElementById('country').value;
+      const testimonial = document.getElementById('testimonial').value;
+      const photo = document.getElementById('photo').files[0];
+      const profilePhoto = document.getElementById('profilePhoto').files[0];
+      
+      // Ici, vous pourriez ajouter le code pour envoyer ces données à un serveur
+      // Pour l'exemple, nous allons juste afficher une alerte
+      
+      alert(`Merci ${fullName} pour votre témoignage ! Il sera examiné et publié prochainement.`);
+      
+      // Réinitialiser le formulaire
+      this.reset();
+    });
+
+    // Script pour le bouton Back to Top
+    document.querySelector('.back-to-top').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+   // Script pour le menu responsive
+// document.getElementById('menuToggle').addEventListener('click', function() {
+//   const navTabs = document.getElementById('navTabs');
+//   navTabs.classList.toggle('active');
+  
+//   // Changer l'icône
+//   const icon = this.querySelector('i');
+//   if (navTabs.classList.contains('active')) {
+//     icon.classList.remove('fa-bars');
+//     icon.classList.add('fa-times');
+//   } else {
+//     icon.classList.remove('fa-times');
+//     icon.classList.add('fa-bars');
+//   }
+// });
+
+// Script pour le popup WhatsApp
+document.addEventListener('DOMContentLoaded', function() {
+  const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+  const closeMiniPopup = document.getElementById('closeMiniPopup');
+  const whatsappBubble = document.getElementById('whatsappBubble');
+  
+  // Vérifier si le popup a déjà été fermé
+  const hasClosedPopup = localStorage.getItem('whatsappPopupClosed');
+  
+  // Si le popup n'a pas été fermé, l'afficher après 2 secondes
+  if (!hasClosedPopup) {
+    setTimeout(function() {
+      whatsappMiniPopup.style.display = 'block';
+    }, 2000);
+  } else {
+    whatsappMiniPopup.style.display = 'none';
+  }
+  
+  // Gérer le clic sur la croix de fermeture
+  closeMiniPopup.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeWhatsAppPopup();
+  });
+
+  // Gérer le clic sur la bulle WhatsApp
+  whatsappBubble.addEventListener('click', function() {
+    window.open('https://wa.me/233536725050', '_blank');
+    // Masquer le popup après avoir cliqué
+    closeWhatsAppPopup();
+  });
+
+  // Permettre de réafficher le popup après 5 minutes (300000 ms)
+  setTimeout(function() {
+    localStorage.removeItem('whatsappPopupClosed');
+  }, 1 * 60 * 1000); // 5 minutes
+});
+
+// Fonction pour fermer manuellement le popup
+function closeWhatsAppPopup() {
+  const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+  whatsappMiniPopup.style.display = 'none';
+  localStorage.setItem('whatsappPopupClosed', 'true');
+}
+
+// Script pour le bouton Back to Top
+document.querySelector('.back-to-top').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Afficher/masquer le bouton Back to Top selon le défilement
+window.addEventListener('scroll', function() {
+  const backToTopButton = document.querySelector('.back-to-top');
+  if (window.scrollY > 300) {
+    backToTopButton.style.display = 'flex';
+  } else {
+    backToTopButton.style.display = 'none';
+  }
+});
+  </script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'eau à Accra : Un défi quotidien - FLA GH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .navbar {
+      background: linear-gradient(135deg, #0d0982 0%, #1a15a0 100%);
+      color: white;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(13, 9, 130, 0.2);
+      position: relative;
+      z-index: 100;
+    }
+
+    .navbar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #eb9234, #0d0982);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .app-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      padding: 0.5rem 0;
+    }
+
+    .logo {
+      height: 40px;
+      width: auto;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .nav-tabs {
+      display: flex;
+      list-style: none;
+      transition: all 0.3s ease;
+    }
+
+    .nav-tab {
+      position: relative;
+    }
+
+    .nav-tab a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 0.8rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 0.9rem;
+    }
+
+    .nav-tab a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #eb9234;
+    }
+
+    .nav-tab a.active {
+      color: #eb9234;
+      font-weight: 600;
+    }
+
+    .nav-tab a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #eb9234;
+    }
+
+    /* Contenu de l'article */
+    .article-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    
+    .article-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .article-category {
+      display: inline-block;
+      background: #0d0982;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+    
+    .article-title {
+      color: #0d0982;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .article-meta {
+      color: #666;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .article-meta i {
+      color: #eb9234;
+      margin-right: 0.5rem;
+    }
+    
+    .article-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .article-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #444;
+    }
+    
+    .article-content h2 {
+      color: #0d0982;
+      margin: 2rem 0 1rem;
+      font-size: 1.8rem;
+    }
+    
+    .article-content h3 {
+      color: #1a15a0;
+      margin: 1.5rem 0 1rem;
+      font-size: 1.4rem;
+    }
+    
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-content ul, .article-content ol {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .highlight-box {
+      background: #f0f5ff;
+      border-left: 4px solid #eb9234;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 5px 5px 0;
+    }
+    
+    .highlight-box p {
+      margin-bottom: 0;
+      font-style: italic;
+      color: #333;
+    }
+    
+    .back-button {
+      display: inline-block;
+      background: #0d0982;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 3rem;
+      transition: background 0.3s;
+    }
+    
+    .back-button:hover {
+      background: #1a15a0;
+    }
+    
+    .back-button i {
+      margin-right: 0.5rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      .nav-tabs {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(13, 9, 130, 0.95);
+      }
+      
+      .nav-tabs.active {
+        display: flex;
+      }
+      
+      .nav-tab {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav-tab a {
+        padding: 1rem;
+      }
+      
+      .logo {
+        height: 35px;
+      }
+      
+      .app-name {
+        font-size: 1.3rem;
+      }
+      
+      .article-container {
+        padding: 0 1rem;
+      }
+      
+      .article-title {
+        font-size: 2rem;
+      }
+      
+      .article-image {
+        height: 300px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .article-title {
+        font-size: 1.8rem;
+      }
+      
+      .article-image {
+        height: 250px;
+      }
+      
+      .article-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="app-name">
+        <img src="logo_fla.jpg" alt="Logo FLA" class="logo">
+        <span>Foreign Language Academy GH</span>
+      </h1>
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-tabs" id="navTabs">
+        <li class="nav-tab"><a href="index.html">Home</a></li>
+        <li class="nav-tab"><a href="programmes.html">Programmes</a></li>
+        <li class="nav-tab"><a href="extra-scolaire.html">Immersion</a></li>
+        <li class="nav-tab"><a href="vie-au-ghana.html">Vivre au Ghana</a></li>
+        <li class="nav-tab"><a href="alumini.html">Témoignages</a></li>
+        <li class="nav-tab"><a href="contactez-nous.html">Contacts</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="article-container">
+    <div class="article-header">
+      <div class="article-category">VIE PRATIQUE</div>
+      <h1 class="article-title">L'eau à Accra : Un défi quotidien entre qualité et accessibilité</h1>
+      <div class="article-meta">
+        <span><i class="far fa-calendar"></i> 23 Janvier 2026</span>
+        <span><i class="far fa-clock"></i> 5 min de lecture</span>
+        <span><i class="far fa-user"></i> Équipe FLA GH</span>
+      </div>
+    </div>
+    
+    <img src="eau1.png" alt="Eau à Accra" class="article-image" onerror="this.src='https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+    
+    <div class="article-content">
+      <p>Dans la capitale ghanéenne, Accra, l'accès à une eau de qualité constitue un véritable défi au quotidien pour les habitants et les visiteurs. Cette question est particulièrement importante pour les étudiants internationaux et les expatriés qui s'installent dans la ville pour suivre des programmes linguistiques à la Foreign Language Academy GH.</p>
+      
+      <h2>La qualité de l'eau à Accra</h2>
+      
+      <p>À Accra, l'eau provenant de la nappe phréatique présente des concentrations importantes de métaux lourds et de minéraux qui peuvent représenter un risque pour la santé. Ces contaminants proviennent principalement de l'activité industrielle, du ruissellement urbain et des conditions géologiques locales.</p>
+      
+      <div class="highlight-box">
+        <p><strong>Important :</strong> Il est fortement déconseillé de boire directement l'eau du robinet à Accra sans traitement préalable.</p>
+      </div>
+      
+      <p>L'eau du réseau municipal peut être utilisée sans danger pour :</p>
+      
+      <ul>
+        <li>La préparation des aliments (après cuisson)</li>
+        <li>La vaisselle et le nettoyage</li>
+        <li>La lessive et le lavage du linge</li>
+        <li>La toilette et l'hygiène personnelle</li>
+        <li>Le nettoyage des surfaces</li>
+      </ul>
+      
+      <h2>Solutions pratiques pour l'eau potable</h2>
+      
+      <p>Pour garantir une consommation d'eau sans risque, plusieurs options s'offrent aux résidents d'Accra :</p>
+      
+      <h3>1. Eau en sachet (Pure Water)</h3>
+      <p>Les sachets d'eau purifiée de 500 ml sont largement disponibles dans toute la ville. C'est l'option la plus économique et pratique pour la consommation quotidienne. On les trouve dans les épiceries, les supermarchés et auprès des vendeurs ambulants.</p>
+      
+      <h3>2. Bidons d'eau (19L)</h3>
+      <p>Les bidons d'eau de 19 litres sont une solution pratique pour les foyers et les appartements. Ils peuvent être livrés à domicile par des services spécialisés et sont équipés de fontaines à eau.</p>
+      
+      <h3>3. Filtres à eau</h3>
+      <p>Les systèmes de filtration domestique représentent une solution durable. Ils existent sous différentes formes : filtres à gravité, filtres à charbon actif, ou systèmes plus élaborés de filtration par osmose inverse.</p>
+      
+      <h3>4. Eau en bouteille</h3>
+      <p>Les bouteilles d'eau minérale des grandes marques internationales et locales sont disponibles dans tous les supermarchés. C'est l'option la plus sûre mais aussi la plus coûteuse à long terme.</p>
+      
+      <h2>Conseils pour les nouveaux arrivants</h2>
+      
+      <p>Pour les étudiants internationaux qui viennent étudier à la FLA GH, voici quelques recommandations :</p>
+      
+      <ol>
+        <li>Établissez dès votre arrivée un contrat de livraison d'eau en bidon</li>
+        <li>Gardez toujours un stock de sachets d'eau d'urgence</li>
+        <li>Investissez dans un bon filtre à eau si vous prévoyez un long séjour</li>
+        <li>Évitez les glaçons dans les restaurants à moins d'être sûr de leur provenance</li>
+        <li>Utilisez de l'eau traitée pour vous brosser les dents</li>
+      </ol>
+      
+      <h2>Coût approximatif</h2>
+      
+      <p>Voici une estimation des coûts mensuels pour une personne :</p>
+      
+      <ul>
+        <li>Sachets d'eau : 20-30 GHC par mois</li>
+        <li>Bidon de 19L : 10-15 GHC (dépôt inclus)</li>
+        <li>Filtre à eau : Investissement initial de 200-500 GHC</li>
+        <li>Bouteilles d'eau : 50-100 GHC par mois</li>
+      </ul>
+      
+      <p>En conclusion, bien que l'accès à l'eau potable représente un défi à Accra, des solutions pratiques et abordables existent. La Foreign Language Academy GH accompagne ses étudiants dans cette transition et leur fournit toutes les informations nécessaires pour un séjour sûr et agréable au Ghana.</p>
+    </div>
+    
+    <a href="vie-au-ghana.html" class="back-button">
+      <i class="fas fa-arrow-left"></i> Retour aux articles
+    </a>
+  </div>
+
+  <script>
+    // Gestion du menu mobile
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const navTabs = document.getElementById('navTabs');
+      navTabs.classList.toggle('active');
+      
+      const icon = this.querySelector('i');
+      if (navTabs.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+    
+    // Ajouter la classe active au lien correspondant
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPage = window.location.pathname.split('/').pop();
+      const navLinks = document.querySelectorAll('.nav-tab a');
+      
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

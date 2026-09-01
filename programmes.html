@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Programmes - Foreign Language Academy GH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Styles de base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Barre de navigation responsive */
+    .navbar {
+      background: linear-gradient(135deg, #0d0982 0%, #1a15a0 100%);
+      color: white;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(13, 9, 130, 0.2);
+      position: relative;
+      z-index: 100;
+    }
+    
+    .navbar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #eb9234, #0d0982);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .app-name {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      padding: 0.5rem 0;
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .nav-tabs {
+      display: flex;
+      list-style: none;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-tab {
+      position: relative;
+    }
+    
+    .nav-tab a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 0.8rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 0.9rem;
+    }
+    
+    .nav-tab a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #eb9234;
+    }
+    
+    .nav-tab a.active {
+      color: #eb9234;
+      font-weight: 600;
+    }
+    
+    .nav-tab a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #eb9234;
+    }
+    
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+    
+    .hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('alliance-francaise.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    
+    .hero-title {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      padding: 0 1rem;
+    }
+    
+    /* Contenu principal */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #1e3c72;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+    
+    /* Cartes de programme */
+    .program-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 3rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .program-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .program-header {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 1.5rem;
+    }
+    
+    .program-icon {
+      font-size: 2.5rem;
+      margin-right: 1.5rem;
+    }
+    
+    .program-name {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    
+    .program-content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .program-image {
+      flex: 1;
+      min-width: 300px;
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 250px;
+      width: 100%;
+    }
+    
+    .program-details {
+      flex: 1;
+      min-width: 300px;
+      padding: 2rem;
+    }
+    
+    .program-description {
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    
+    .program-features {
+      margin-bottom: 2rem;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-icon {
+      color: #2a5298;
+      margin-right: 0.8rem;
+      margin-top: 0.2rem;
+    }
+    
+    .feature-text {
+      flex: 1;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Section témoignages */
+    .testimonials {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 4rem 2rem;
+      margin: 4rem 0;
+      text-align: center;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+    }
+    
+    /* Pied de page */
+    footer {
+      background: #222;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .footer-info {
+      color: #777;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      .nav-tabs {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(13, 9, 130, 0.95);
+      }
+      
+      .nav-tabs.active {
+        display: flex;
+      }
+      
+      .nav-tab {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav-tab a {
+        padding: 1rem;
+      }
+      
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .program-content {
+        flex-direction: column;
+      }
+      
+      .program-image {
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+      
+      .program-name {
+        font-size: 1.5rem;
+      }
+      
+      .program-icon {
+        font-size: 2rem;
+        margin-right: 1rem;
+      }
+      
+      .feature-icon {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Ajoutez ces nouveaux styles pour le logo */
+    .app-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      padding: 0.5rem 0;
+    }
+    
+    .logo {
+      height: 50px; /* Ajustez cette valeur selon vos besoins */
+      width: auto;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    }
+    
+    @media (max-width: 768px) {
+      .logo {
+        height: 40px; /* Taille réduite pour mobile */
+      }
+      .app-name {
+        font-size: 1.3rem; /* Taille de texte réduite pour mobile */
+      }
+    }
+
+    .logo {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+    /* Styles pour le bouton Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: white;
+      border: 5px solid #3498db;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-to-top:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      border-color: #2980b9;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-top i {
+      color: #e74c3c;
+      font-size: 24px;
+    }
+
+
+  
+    /* Styles pour le popup WhatsApp */
+    .whatsapp-mini-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      animation: float 3s ease-in-out infinite;
+      display: block; /* Afficher par défaut pour test */
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .whatsapp-bubble {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-radius: 50px;
+      padding: 15px 25px;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      backdrop-filter: blur(10px);
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+      50% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.5); }
+      100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+    }
+    
+    .whatsapp-bubble:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-icon-mini {
+      font-size: 28px;
+      color: white;
+    }
+    
+    .whatsapp-text {
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    .whatsapp-number {
+      font-size: 16px;
+      font-weight: 700;
+      display: block;
+      margin-top: 3px;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .whatsapp-link-inline {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .whatsapp-link-inline:hover {
+      text-decoration: underline;
+    }
+    
+    .close-mini-popup {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #ff4757;
+      color: white;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
+      z-index: 1001;
+    }
+    
+    .close-mini-popup:hover {
+      background: #ff3742;
+    }
+
+    .back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border: 5px solid #3498db;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  /* Ajoutez cette ligne pour cacher par défaut */
+  display: none;
+}
+    
+  </style>
+</head>
+<body>
+  <!-- Barre de navigation avec menu responsive -->
+  <nav class="navbar">
+    <div class="nav-container">
+<h1 class="app-name">
+        <img src="logo_fla.jpg" alt="Logo FLA" class="logo">
+        <span>Foreign Language Academy GH</span>
+       </h1>
+             <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-tabs" id="navTabs">
+      <li class="nav-tab"><a href="index.html">Home</a></li>
+      <li class="nav-tab"><a href="programmes.html">Programmes</a></li>
+      <li class="nav-tab"><a href="extra-scolaire.html">Immersion</a></li>
+      <li class="nav-tab"><a href="vie-au-ghana.html">Vivre au Ghana</a></li>
+      <!-- <li class="nav-tab"><a href="etudes-bourses.html">Études à l'étranger</a></li> -->
+      <li class="nav-tab"><a href="alumini.html">Témoignages</a></li>
+      <li class="nav-tab"><a href="contactez-nous.html">Contacts</a></li>
+    </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image"></div>
+    <div class="hero-overlay"></div>
+    <h1 class="hero-title">Nos Programmes d'Excellence</h1>
+    <p class="hero-subtitle">Découvrez notre gamme complète de formations linguistiques et opportunités internationales</p>
+  </section>
+
+  <!-- Contenu principal -->
+  <main class="container">
+    <!-- Programme 1 -->
+    <section class="program-card">
+      <div class="program-header">
+        <div class="program-icon"><i class="fas fa-comments"></i></div>
+        <h2 class="program-name">Anglais pour la Communication</h2>
+      </div>
+      <div class="program-content">
+        <div class="program-image" style="background-image: url('af_accra.jpg');"></div>
+        <div class="program-details">
+          <p class="program-description">
+            Notre programme phare d'anglais communicationnel est conçu pour vous permettre d'acquérir une maîtrise pratique et fluide de la langue anglaise dans des situations réelles de la vie quotidienne et professionnelle.
+          </p>
+          <div class="program-features">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Méthode Headway</strong> de l'Université d'Oxford pour un apprentissage structuré et efficace
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Approche communicative</strong> axée sur l'expression orale et la compréhension
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Ateliers pratiques</strong> : jeux de rôle, débats, présentations et simulations
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Modules spécialisés</strong> : anglais des affaires, anglais médical, anglais du tourisme
+              </div>
+            </div>
+          </div>
+          <a href="fiche_de_preinscription.html" class="cta-button">S'inscrire maintenant</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programme 2 -->
+    <section class="program-card">
+      <div class="program-header">
+        <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h2 class="program-name">Préparation aux Tests Internationaux</h2>
+      </div>
+      <div class="program-content">
+        <div class="program-image" style="background-image: url('test.jpg');"></div>
+        <div class="program-details">
+          <p class="program-description">
+            Nous préparons nos étudiants à exceller aux tests de compétence linguistique reconnus internationalement, ouvrant les portes des universités et des opportunités professionnelles à l'étranger.
+          </p>
+          <div class="program-features">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>TOEFL iBT</strong> : Préparation complète avec tests blancs et corrections personnalisées
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>IELTS Academic/General</strong> : Entraînement intensif aux 4 compétences évaluées
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>English Proficiency Test</strong> : Test reconnu mondialement avec validité à vie
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Simulations d'examen</strong> dans les conditions réelles pour une préparation optimale
+              </div>
+            </div>
+          </div>
+          <a href="fiche_de_preinscription.html" class="cta-button">S'inscrire maintenant</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programme 3 -->
+    <section class="program-card">
+      <div class="program-header">
+        <div class="program-icon"><i class="fas fa-globe-africa"></i></div>
+        <h2 class="program-name">Études à l'Étranger & Bourses</h2>
+      </div>
+      <div class="program-content">
+        <div class="program-image" style="background-image: url('https://media.istockphoto.com/id/1364933585/photo/young-afro-american-student-is-writing-in-the-library.webp?a=1&b=1&s=612x612&w=0&k=20&c=zJ_aRGer4wy3VzvPKjM_kScpARmxcrnKJDq7pV2ViLU=');"></div>
+        <div class="program-details">
+          <p class="program-description">
+            Notre service d'accompagnement complet vous guide pas à pas dans votre projet d'études internationales, avec un accès privilégié à des bourses et partenariats exclusifs.
+          </p>
+          <div class="program-features">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Pays cibles</strong> : USA, Canada, Malaisie avec nos universités partenaires
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Bourses d'études</strong> exclusives pour nos étudiants les plus méritants
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Accompagnement complet</strong> : choix des universités, préparation des dossiers, obtention des visas
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Programme de parrainage</strong> avec nos anciens étudiants installés à l'étranger
+              </div>
+            </div>
+          </div>
+          <a href="etudes-bourses.html" class="cta-button">Voir plus...</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programme 4 -->
+    <section class="program-card">
+      <div class="program-header">
+        <div class="program-icon"><i class="fas fa-umbrella-beach"></i></div>
+        <h2 class="program-name">Colonies de Vacances Linguistiques</h2>
+      </div>
+      <div class="program-content">
+        <div class="program-image" style="background-image: url('vacance.jpg');"></div>
+        <div class="program-details">
+          <p class="program-description">
+            Combinez apprentissage des langues et loisirs avec nos colonies de vacances innovantes pour tous les âges, dans un environnement immersif et ludique.
+          </p>
+          <div class="program-features">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Programmes adaptés</strong> : enfants (6-12 ans), adolescents (13-17 ans) et adultes
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Immersion totale</strong> avec la méthode "English/French Only"
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Activités variées</strong> : sports, ateliers créatifs, excursions culturelles
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Hébergement</strong> sur notre campus sécurisé ou en familles d'accueil
+              </div>
+            </div>
+          </div>
+          <a href="https://wa.me/233536725050" class="cta-button">Contactez-nous</a>
+        </div>
+      </div>
+    </section>
+
+  <section class="program-card">
+  <div class="program-header">
+    <div class="program-icon"><i class="fas fa-globe-africa"></i></div>
+    <h2 class="program-name"> Tourisme & Découverte du Ghana</h2>
+  </div>
+  <div class="program-content">
+    <!-- Image de fond remplacée par une scène touristique du Ghana -->
+    <div class="program-image" style="background-image: url('etats-unis.jpg'); background-position: center 30%;">
+      
+    </div>
+    <div class="program-details">
+      <p class="program-description">
+        Votre porte d'entrée privilégiée pour une expérience authentique au Ghana. Notre agence conçoit et organise des séjours sur mesure pour les voyageurs du monde entier, de l'accueil à l'accompagnement sur nos plus beaux sites.
+      </p>
+      <div class="program-features">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <div class="feature-text">
+            <strong>Circuits & Expériences uniques</strong> : Parc National de Kakum, Chutes de Boti, village sur pilotis de Nzulezu et bien plus encore.
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-concierge-bell"></i></div>
+          <div class="feature-text">
+            <strong>Services Complets</strong> : Transport, hébergement, guides francophones, restauration et activités culturelles.
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-users"></i></div>
+          <div class="feature-text">
+            <strong>Expertise Locale & Partenariats</strong> : Accès privilégié aux sites historiques (Château d'Elmina),  lodges écotouristiques et communautés.
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="feature-text">
+            <strong>Événements & Festivals</strong> : Organisation de séjours autour d'événements comme le Festival de Parapente de Kwahu.
+          </div>
+        </div>
+      </div>
+      <!-- Le lien de contact reste identique -->
+      <a href="https://wa.me/233536725050" class="cta-button">Planifiez votre voyage au Ghana</a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Style pour l'overlay de l'image */
+.image-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  color: white;
+  padding: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.image-overlay h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+}
+.image-overlay p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+</style>
+
+    <!-- Programme 5 -->
+    <section class="program-card">
+      <div class="program-header">
+        <div class="program-icon"><i class="fas fa-briefcase"></i></div>
+        <h2 class="program-name">Opportunités de Travail à l'Étranger</h2>
+      </div>
+      <div class="program-content">
+        <div class="program-image" style="background-image: url('student.webp');"></div>
+        <div class="program-details">
+          <p class="program-description">
+            Notre programme exclusif de placement professionnel à l'international ouvre les portes du marché du travail global aux diplômés de notre académie.
+          </p>
+          <div class="program-features">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Partenariats employeurs</strong> en Amérique du Nord, Europe et Asie
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Formation interculturelle</strong> pour une intégration professionnelle réussie
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Secteurs porteurs</strong> : santé, informatique, tourisme, ingénierie
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="feature-text">
+                <strong>Accompagnement légal</strong> pour les démarches de visa de travail
+              </div>
+            </div>
+          </div>
+          <a href="https://wa.me/233536725050" class="cta-button">Contactez-nous</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="testimonials">
+      <h2 class="section-title" style="color: white;">Ils Ont Réussi Grâce à Notre Académie</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Grâce à la préparation TOEFL de l'académie, j'ai obtenu 112/120 et une bourse complète aux États-Unis. Un rêve devenu réalité !"
+          </p>
+          <p class="testimonial-author">- Koffi A., étudiant à l'Université de Michigan</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "La colonie de vacances a transformé ma fille qui avait peur de parler anglais. Après 3 semaines, elle est devenue plus confiante!"
+          </p>
+          <p class="testimonial-author">- Mme Diallo, mère d'Aminata (12 ans)</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Le programme travail à l'étranger m'a permis de décrocher un poste en Malaisie avec un salaire 5 fois supérieur."
+          </p>
+          <p class="testimonial-author">- Jean-Luc T., ingénieur à Kuala Lumpur</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- POPUP WHATSAPP MINIMALISTE -->
+  <div class="whatsapp-mini-popup" id="whatsappMiniPopup">
+    <div class="whatsapp-bubble" id="whatsappBubble">
+      <i class="fab fa-whatsapp whatsapp-icon-mini"></i>
+      <div class="whatsapp-text">
+        📱 Un groupe WhatsApp de cours d'anglais 
+             gratuit et sans engagement? 
+             
+        <span class="whatsapp-number">
+          <a href="https://chat.whatsapp.com/G40JEhaukk62vxJGZp1FEe" target="_blank" class="whatsapp-link-inline">
+            REJOINDRE
+          </a>
+          <a href="https://wa.me/233536725050" target="_blank" class="whatsapp-link-inline">
+            +233 536725050
+          </a>
+        </span>
+      </div>
+    </div>
+    <!-- BOUTON DE FERMETURE AJOUTÉ ICI -->
+    <div class="close-mini-popup" id="closeMiniPopup">
+      <i class="fas fa-times"></i>
+    </div>
+  </div>
+
+  <!-- Bouton Back to Top -->
+  <a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  
+
+  <script>
+   // Script pour le menu responsive
+document.getElementById('menuToggle').addEventListener('click', function() {
+  const navTabs = document.getElementById('navTabs');
+  navTabs.classList.toggle('active');
+  
+  // Changer l'icône
+  const icon = this.querySelector('i');
+  if (navTabs.classList.contains('active')) {
+    icon.classList.remove('fa-bars');
+    icon.classList.add('fa-times');
+  } else {
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  }
+});
+
+// Script pour le popup WhatsApp
+document.addEventListener('DOMContentLoaded', function() {
+  const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+  const closeMiniPopup = document.getElementById('closeMiniPopup');
+  const whatsappBubble = document.getElementById('whatsappBubble');
+  
+  // Vérifier si le popup a déjà été fermé
+  const hasClosedPopup = localStorage.getItem('whatsappPopupClosed');
+  
+  // Si le popup n'a pas été fermé, l'afficher après 2 secondes
+  if (!hasClosedPopup) {
+    setTimeout(function() {
+      whatsappMiniPopup.style.display = 'block';
+    }, 2000);
+  } else {
+    whatsappMiniPopup.style.display = 'none';
+  }
+  
+  // Gérer le clic sur la croix de fermeture
+  closeMiniPopup.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeWhatsAppPopup();
+  });
+
+  // Gérer le clic sur la bulle WhatsApp
+  whatsappBubble.addEventListener('click', function() {
+    window.open('https://wa.me/233536725050', '_blank');
+    // Masquer le popup après avoir cliqué
+    closeWhatsAppPopup();
+  });
+
+  // Permettre de réafficher le popup après 5 minutes (300000 ms)
+  setTimeout(function() {
+    localStorage.removeItem('whatsappPopupClosed');
+  }, 1 * 60 * 1000); // 5 minutes
+});
+
+// Fonction pour fermer manuellement le popup
+function closeWhatsAppPopup() {
+  const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+  whatsappMiniPopup.style.display = 'none';
+  localStorage.setItem('whatsappPopupClosed', 'true');
+}
+
+// Script pour le bouton Back to Top
+document.querySelector('.back-to-top').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Afficher/masquer le bouton Back to Top selon le défilement
+window.addEventListener('scroll', function() {
+  const backToTopButton = document.querySelector('.back-to-top');
+  if (window.scrollY > 300) {
+    backToTopButton.style.display = 'flex';
+  } else {
+    backToTopButton.style.display = 'none';
+  }
+});
+  </script>
+</body>
+</html>
