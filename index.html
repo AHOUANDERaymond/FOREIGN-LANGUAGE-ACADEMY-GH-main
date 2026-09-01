@@ -713,109 +713,168 @@
       transform: scale(1.2);
     }
     
-    /* Nouvelle section Statistiques */
-    .stats-section {
-      background: linear-gradient(rgba(13, 9, 130, 0.9), rgba(13, 9, 130, 0.9)), 
-                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: white;
-      padding: 5rem 2rem;
-      margin: 4rem 0;
+    /* NOUVELLE SECTION RÉSEAUX SOCIAUX (blanche, avant le footer) */
+    .social-section {
+      background: white;
+      padding: 4rem 2rem;
+      margin: 4rem 0 2rem 0;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(13, 9, 130, 0.08);
+      text-align: center;
       position: relative;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 15px 30px rgba(13, 9, 130, 0.2);
     }
-
-    .stats-section::before {
+    
+    .social-section::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #eb9234, #0d0982);
+      border-radius: 10px 10px 0 0;
+    }
+
+    .social-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #0d0982, #eb9234);
+      border-radius: 0 0 10px 10px;
+    }
+    
+    .social-section h2 {
+      font-size: 2.2rem;
+      color: #0d0982;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    
+    .social-section .subtitle {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    
+    .social-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    
+    .social-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: 1rem 1.5rem;
+      border-radius: 15px;
+      background: rgba(13, 9, 130, 0.03);
+      border: 1px solid rgba(13, 9, 130, 0.06);
+      min-width: 100px;
+    }
+    
+    .social-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-color: rgba(13, 9, 130, 0.15);
+    }
+    
+    .social-icon-wrapper {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: white;
+      margin-bottom: 0.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .social-icon-wrapper::after {
+      content: '';
+      position: absolute;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(235, 146, 52, 0.1) 0%, rgba(13, 9, 130, 0.7) 100%);
-      z-index: 0;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
     }
-
-    .stats-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      position: relative;
-      z-index: 1;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    
+    .social-item:hover .social-icon-wrapper::after {
+      transform: scale(1.15);
+      opacity: 0;
     }
-
-    .stats-title::after {
-      content: '';
-      display: block;
-      width: 100px;
-      height: 4px;
-      background: #eb9234;
-      margin: 1rem auto;
-      border-radius: 2px;
+    
+    /* Couleurs des icônes sociales */
+    .social-item:nth-child(1) .social-icon-wrapper { background: linear-gradient(135deg, #1877f2, #0d65d9); }
+    .social-item:nth-child(2) .social-icon-wrapper { background: linear-gradient(135deg, #e4405f, #c13584); }
+    .social-item:nth-child(3) .social-icon-wrapper { background: linear-gradient(135deg, #000000, #161616); }
+    .social-item:nth-child(4) .social-icon-wrapper { background: linear-gradient(135deg, #000000, #1a1a1a); }
+    .social-item:nth-child(5) .social-icon-wrapper { background: linear-gradient(135deg, #25d366, #128C7E); }
+    .social-item:nth-child(6) .social-icon-wrapper { background: linear-gradient(135deg, #ff0000, #cc0000); }
+    .social-item:nth-child(7) .social-icon-wrapper { background: linear-gradient(135deg, #f57c00, #e65100); }
+    
+    .social-item:hover .social-icon-wrapper {
+      transform: scale(1.1) rotate(-5deg);
     }
-
-    .stats-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
+    
+    .social-item span {
+      font-weight: 600;
+      color: #0d0982;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
     }
-
-    .stat-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 10px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.4s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    
+    .social-item small {
+      color: #999;
+      font-size: 0.75rem;
+      margin-top: 0.2rem;
     }
-
-    .stat-card:hover {
-      transform: translateY(-10px);
-      background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    
+    @media (max-width: 768px) {
+      .social-grid {
+        gap: 1.2rem;
+      }
+      .social-item {
+        min-width: 80px;
+        padding: 0.8rem 1rem;
+      }
+      .social-icon-wrapper {
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+      }
+      .social-item span {
+        font-size: 0.75rem;
+      }
     }
-
-    .stat-icon {
-      font-size: 3rem;
-      color: #eb9234;
-      margin-bottom: 1rem;
-    }
-
-    .stat-number {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin: 1rem 0;
-      background: linear-gradient(to right, #eb9234, #ffd700);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-    }
-
-    .stat-number::after {
-      content: '+';
-      position: absolute;
-      right: -1rem;
-      top: 0;
-      font-size: 2rem;
-      color: white;
-    }
-
-    .stat-label {
-      font-size: 1.2rem;
-      color: white;
-      opacity: 0.9;
+    
+    @media (max-width: 480px) {
+      .social-grid {
+        gap: 0.8rem;
+      }
+      .social-item {
+        min-width: 65px;
+        padding: 0.6rem 0.8rem;
+      }
+      .social-icon-wrapper {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+      }
     }
 
     /* Pied de page amélioré */
@@ -824,6 +883,7 @@
       color: white;
       padding: 3rem 2rem;
       position: relative;
+      margin-top: 0;
     }
     
     .app-footer::before {
@@ -1023,6 +1083,7 @@
       transition: all 0.3s ease;
       z-index: 999;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      display: none; /* caché par défaut, visible via JS */
     }
 
     .back-to-top:hover {
@@ -1358,7 +1419,37 @@
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- NOUVELLE SECTION RÉSEAUX SOCIAUX (blanche, avant le footer) -->
+    <div class="social-section">
+      <h2>Suivez-nous</h2>
+      <p class="subtitle">Restez connecté avec Foreign Language Academy GH sur nos réseaux sociaux</p>
+      <div class="social-grid">
+        <a href="https://www.facebook.com/share/1Fhuc6zToL/" target="_blank" class="social-item" title="Facebook">
+          <div class="social-icon-wrapper"><i class="fab fa-facebook-f"></i></div>
+          <span>Facebook</span>
+          <small>@fla.ghana</small>
+        </a>
+        <a href="https://www.instagram.com/foreignlanguageacademygh?igsi=MWJidWNwcXdkNGgxcw==" target="_blank" class="social-item" title="Instagram">
+          <div class="social-icon-wrapper"><i class="fab fa-instagram"></i></div>
+          <span>Instagram</span>
+          <small>@foreignlanguageacademygh</small>
+        </a>
+        <a href="https://www.tiktok.com/@flaghana?_r=1&_t=ZS-99MrSPnee16" target="_blank" class="social-item" title="TikTok">
+          <div class="social-icon-wrapper"><i class="fab fa-tiktok"></i></div>
+          <span>TikTok</span>
+          <small>@foreignlanguageacademy</small>
+        </a>
+        <a href="https://www.threads.com/@foreignlanguageacademygh" target="_blank" class="social-item" title="Threads">
+          <div class="social-icon-wrapper"><i class="fa-brands fa-threads"></i></div>
+          <span>Threads</span>
+          <small>@foreignlanguageacademygh</small>
+        </a>
+        
+      </div>
+    </div>
+
+  </div><!-- fin content -->
 
  <!-- POPUP WHATSAPP MINIMALISTE -->
   <div class="whatsapp-mini-popup" id="whatsappMiniPopup">
@@ -1451,13 +1542,6 @@
       <p>flaghaccra@gmail.com</p>
     </div>
   </footer>
-  <!-- <footer class="guide-footer">
-    <div class="footer-buttons">
-        <a href="#" class="back-to-top" onclick="scrollToTop()">
-            <i class="fas fa-arrow-up"></i> 
-        </a>
-    </div>
-  </footer> -->
   
   <script>
     // Animation des compteurs
@@ -1553,20 +1637,20 @@
       });
 
       // Script pour le menu responsive
-      // document.getElementById('menuToggle').addEventListener('click', function() {
-      //   const navTabs = document.getElementById('navTabs');
-      //   navTabs.classList.toggle('active');
+      document.getElementById('menuToggle').addEventListener('click', function() {
+        const navTabs = document.getElementById('navTabs');
+        navTabs.classList.toggle('active');
         
-      //   // Changer l'icône
-      //   const icon = this.querySelector('i');
-      //   if (navTabs.classList.contains('active')) {
-      //     icon.classList.remove('fa-bars');
-      //     icon.classList.add('fa-times');
-      //   } else {
-      //     icon.classList.remove('fa-times');
-      //     icon.classList.add('fa-bars');
-      //   }
-      // });
+        // Changer l'icône
+        const icon = this.querySelector('i');
+        if (navTabs.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
 
       // Fonction pour remonter en haut de page
       function scrollToTop() {
@@ -1576,88 +1660,87 @@
         });
       }
     });
+
     // Script pour le bouton Back to Top
     document.querySelector('.back-to-top').addEventListener('click', function(e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // Script pour le menu responsive (déjà présent)
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const navTabs = document.getElementById('navTabs');
+      navTabs.classList.toggle('active');
+      
+      const icon = this.querySelector('i');
+      if (navTabs.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
 
-   // Script pour le menu responsive
-document.getElementById('menuToggle').addEventListener('click', function() {
-  const navTabs = document.getElementById('navTabs');
-  navTabs.classList.toggle('active');
-  
-  // Changer l'icône
-  const icon = this.querySelector('i');
-  if (navTabs.classList.contains('active')) {
-    icon.classList.remove('fa-bars');
-    icon.classList.add('fa-times');
-  } else {
-    icon.classList.remove('fa-times');
-    icon.classList.add('fa-bars');
-  }
-});
+    // Script pour le popup WhatsApp
+    document.addEventListener('DOMContentLoaded', function() {
+      const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+      const closeMiniPopup = document.getElementById('closeMiniPopup');
+      const whatsappBubble = document.getElementById('whatsappBubble');
+      
+      // Vérifier si le popup a déjà été fermé
+      const hasClosedPopup = localStorage.getItem('whatsappPopupClosed');
+      
+      // Si le popup n'a pas été fermé, l'afficher après 2 secondes
+      if (!hasClosedPopup) {
+        setTimeout(function() {
+          whatsappMiniPopup.style.display = 'block';
+        }, 2000);
+      } else {
+        whatsappMiniPopup.style.display = 'none';
+      }
+      
+      // Gérer le clic sur la croix de fermeture
+      closeMiniPopup.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeWhatsAppPopup();
+      });
 
-// Script pour le popup WhatsApp
-document.addEventListener('DOMContentLoaded', function() {
-  const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
-  const closeMiniPopup = document.getElementById('closeMiniPopup');
-  const whatsappBubble = document.getElementById('whatsappBubble');
-  
-  // Vérifier si le popup a déjà été fermé
-  const hasClosedPopup = localStorage.getItem('whatsappPopupClosed');
-  
-  // Si le popup n'a pas été fermé, l'afficher après 2 secondes
-  if (!hasClosedPopup) {
-    setTimeout(function() {
-      whatsappMiniPopup.style.display = 'block';
-    }, 2000);
-  } else {
-    whatsappMiniPopup.style.display = 'none';
-  }
-  
-  // Gérer le clic sur la croix de fermeture
-  closeMiniPopup.addEventListener('click', function(e) {
-    e.stopPropagation();
-    closeWhatsAppPopup();
-  });
+      // Gérer le clic sur la bulle WhatsApp
+      whatsappBubble.addEventListener('click', function() {
+        window.open('https://wa.me/233536725050', '_blank');
+        // Masquer le popup après avoir cliqué
+        closeWhatsAppPopup();
+      });
 
-  // Gérer le clic sur la bulle WhatsApp
-  whatsappBubble.addEventListener('click', function() {
-    window.open('https://wa.me/233536725050', '_blank');
-    // Masquer le popup après avoir cliqué
-    closeWhatsAppPopup();
-  });
+      // Permettre de réafficher le popup après 5 minutes (300000 ms)
+      setTimeout(function() {
+        localStorage.removeItem('whatsappPopupClosed');
+      }, 1 * 60 * 1000); // 5 minutes
+    });
 
-  // Permettre de réafficher le popup après 5 minutes (300000 ms)
-  setTimeout(function() {
-    localStorage.removeItem('whatsappPopupClosed');
-  }, 1 * 60 * 1000); // 5 minutes
-});
+    // Fonction pour fermer manuellement le popup
+    function closeWhatsAppPopup() {
+      const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
+      whatsappMiniPopup.style.display = 'none';
+      localStorage.setItem('whatsappPopupClosed', 'true');
+    }
 
-// Fonction pour fermer manuellement le popup
-function closeWhatsAppPopup() {
-  const whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
-  whatsappMiniPopup.style.display = 'none';
-  localStorage.setItem('whatsappPopupClosed', 'true');
-}
+    // Script pour le bouton Back to Top (déjà présent, mais on garde)
+    document.querySelector('.back-to-top').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-// Script pour le bouton Back to Top
-document.querySelector('.back-to-top').addEventListener('click', function(e) {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Afficher/masquer le bouton Back to Top selon le défilement
-window.addEventListener('scroll', function() {
-  const backToTopButton = document.querySelector('.back-to-top');
-  if (window.scrollY > 300) {
-    backToTopButton.style.display = 'flex';
-  } else {
-    backToTopButton.style.display = 'none';
-  }
-});
+    // Afficher/masquer le bouton Back to Top selon le défilement
+    window.addEventListener('scroll', function() {
+      const backToTopButton = document.querySelector('.back-to-top');
+      if (window.scrollY > 300) {
+        backToTopButton.style.display = 'flex';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
   </script>
 </body>
 </html>
