@@ -183,6 +183,8 @@
       gap: 1rem;
       animation: fadeInUp 1s ease-out 0.2s forwards;
       opacity: 0;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     
     @keyframes fadeInUp {
@@ -634,6 +636,15 @@
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     
+    .student-caption h3 a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .student-caption h3 a:hover {
+      text-decoration: underline;
+    }
+    
     .student-caption p {
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
@@ -713,172 +724,8 @@
       background: #eb9234;
       transform: scale(1.2);
     }
-    
-    /* NOUVELLE SECTION RÉSEAUX SOCIAUX (blanche, avant le footer) */
-    .social-section {
-      background: white;
-      padding: 4rem 2rem;
-      margin: 4rem 0 2rem 0;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(13, 9, 130, 0.08);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .social-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, #eb9234, #0d0982);
-      border-radius: 10px 10px 0 0;
-    }
 
-    .social-section::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, #0d0982, #eb9234);
-      border-radius: 0 0 10px 10px;
-    }
-    
-    .social-section h2 {
-      font-size: 2.2rem;
-      color: #0d0982;
-      margin-bottom: 0.5rem;
-      position: relative;
-    }
-    
-    .social-section .subtitle {
-      color: #666;
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
-      position: relative;
-    }
-    
-    .social-grid {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      position: relative;
-    }
-    
-    .social-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      padding: 1rem 1.5rem;
-      border-radius: 15px;
-      background: rgba(13, 9, 130, 0.03);
-      border: 1px solid rgba(13, 9, 130, 0.06);
-      min-width: 100px;
-    }
-    
-    .social-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      border-color: rgba(13, 9, 130, 0.15);
-    }
-    
-    .social-icon-wrapper {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      color: white;
-      margin-bottom: 0.8rem;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .social-icon-wrapper::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      transition: all 0.3s ease;
-    }
-    
-    .social-item:hover .social-icon-wrapper::after {
-      transform: scale(1.15);
-      opacity: 0;
-    }
-    
-    /* Couleurs des icônes sociales */
-    .social-item:nth-child(1) .social-icon-wrapper { background: linear-gradient(135deg, #1877f2, #0d65d9); }
-    .social-item:nth-child(2) .social-icon-wrapper { background: linear-gradient(135deg, #e4405f, #c13584); }
-    .social-item:nth-child(3) .social-icon-wrapper { background: linear-gradient(135deg, #000000, #161616); }
-    .social-item:nth-child(4) .social-icon-wrapper { background: linear-gradient(135deg, #000000, #1a1a1a); }
-    .social-item:nth-child(5) .social-icon-wrapper { background: linear-gradient(135deg, #25d366, #128C7E); }
-    .social-item:nth-child(6) .social-icon-wrapper { background: linear-gradient(135deg, #ff0000, #cc0000); }
-    .social-item:nth-child(7) .social-icon-wrapper { background: linear-gradient(135deg, #f57c00, #e65100); }
-    
-    .social-item:hover .social-icon-wrapper {
-      transform: scale(1.1) rotate(-5deg);
-    }
-    
-    .social-item span {
-      font-weight: 600;
-      color: #0d0982;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-    }
-    
-    .social-item small {
-      color: #999;
-      font-size: 0.75rem;
-      margin-top: 0.2rem;
-    }
-    
-    @media (max-width: 768px) {
-      .social-grid {
-        gap: 1.2rem;
-      }
-      .social-item {
-        min-width: 80px;
-        padding: 0.8rem 1rem;
-      }
-      .social-icon-wrapper {
-        width: 55px;
-        height: 55px;
-        font-size: 1.6rem;
-      }
-      .social-item span {
-        font-size: 0.75rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .social-grid {
-        gap: 0.8rem;
-      }
-      .social-item {
-        min-width: 65px;
-        padding: 0.6rem 0.8rem;
-      }
-      .social-icon-wrapper {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3rem;
-      }
-    }
-
-    /* Pied de page amélioré */
+    /* Pied de page amélioré AVEC RÉSEAUX SOCIAUX */
     .app-footer {
       background: linear-gradient(135deg, #0d0982 0%, #080561 100%);
       color: white;
@@ -957,34 +804,99 @@
       padding-left: 1.5rem;
     }
 
-    /* Footer guide */
-    .guide-footer {
-      background: #222;
-      color: white;
-      padding: 2rem;
+    /* SECTION RÉSEAUX SOCIAUX DANS LE FOOTER */
+    .footer-social {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
       text-align: center;
     }
     
-    .footer-buttons {
-      margin-top: 1rem;
+    .footer-social h3 {
+      color: #eb9234;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
     }
     
-    .back-to-top {
-      display: inline-block;
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 30px;
+    .footer-social-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-social-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-decoration: none;
-      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 0.8rem 1.2rem;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      min-width: 80px;
+    }
+    
+    .footer-social-item:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(235,146,52,0.3);
+    }
+    
+    .footer-social-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      margin-bottom: 0.5rem;
       transition: all 0.3s ease;
     }
     
-    .back-to-top:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    .footer-social-item:hover .footer-social-icon {
+      transform: scale(1.1);
     }
     
+    .footer-social-item span {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .footer-social-item small {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+    }
+    
+    /* Couleurs des icônes sociales dans le footer */
+    .footer-social-item:nth-child(1) .footer-social-icon { background: linear-gradient(135deg, #1877f2, #0d65d9); }
+    .footer-social-item:nth-child(2) .footer-social-icon { background: linear-gradient(135deg, #e4405f, #c13584); }
+    .footer-social-item:nth-child(3) .footer-social-icon { background: linear-gradient(135deg, #000000, #161616); }
+    .footer-social-item:nth-child(4) .footer-social-icon { background: linear-gradient(135deg, #000000, #1a1a1a); }
+    .footer-social-item:nth-child(5) .footer-social-icon { background: linear-gradient(135deg, #25d366, #128C7E); }
+    .footer-social-item:nth-child(6) .footer-social-icon { background: linear-gradient(135deg, #ff0000, #cc0000); }
+    .footer-social-item:nth-child(7) .footer-social-icon { background: linear-gradient(135deg, #f57c00, #e65100); }
+    
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+    
+    .footer-bottom p {
+      margin: 0.3rem 0;
+    }
+
     /* Responsive */
     @media (max-width: 992px) {
       .menu-toggle {
@@ -996,6 +908,10 @@
         width: 100%;
         flex-direction: column;
         background: rgba(13, 9, 130, 0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 200;
       }
       
       .nav-tabs.active {
@@ -1018,17 +934,19 @@
     
     @media (max-width: 768px) {
       .welcome-message {
-        font-size: 2rem;
+        font-size: 1.8rem;
         padding: 0 1rem;
       }
       
       .action-buttons {
         flex-direction: column;
-        width: 80%;
+        width: 90%;
+        gap: 0.8rem;
       }
       
       .btn {
         width: 100%;
+        text-align: center;
       }
       
       .program-features, .housing-grid {
@@ -1036,7 +954,7 @@
       }
       
       .student-slide img {
-        height: 400px;
+        height: 350px;
       }
       
       .student-caption h3 {
@@ -1046,6 +964,25 @@
       .student-caption p {
         font-size: 1rem;
       }
+      
+      .footer-tabs {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .footer-social-grid {
+        gap: 0.8rem;
+      }
+      
+      .footer-social-item {
+        min-width: 65px;
+        padding: 0.6rem 0.8rem;
+      }
+      
+      .footer-social-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
+      }
     }
     
     @media (max-width: 480px) {
@@ -1054,7 +991,7 @@
       }
       
       .student-slide img {
-        height: 300px;
+        height: 250px;
       }
       
       .student-caption {
@@ -1062,7 +999,11 @@
       }
       
       .student-caption h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+      }
+      
+      .footer-tabs {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1084,7 +1025,7 @@
       transition: all 0.3s ease;
       z-index: 999;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-      display: none; /* caché par défaut, visible via JS */
+      display: none;
     }
 
     .back-to-top:hover {
@@ -1099,7 +1040,6 @@
       font-size: 24px;
     }
 
-  
     /* Styles pour le popup WhatsApp */
     .whatsapp-mini-popup {
       position: fixed;
@@ -1107,7 +1047,7 @@
       right: 20px;
       z-index: 1000;
       animation: float 3s ease-in-out infinite;
-      display: block; /* Afficher par défaut pour test */
+      display: none;
     }
     
     @keyframes float {
@@ -1191,27 +1131,6 @@
     .close-mini-popup:hover {
       background: #ff3742;
     }
-
-    .back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background-color: white;
-  border: 5px solid #3498db;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  opacity: 0.9;
-  transition: all 0.3s ease;
-  z-index: 999;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-  /* Ajoutez cette ligne pour cacher par défaut */
-  display: none;
-}
     
   </style>
 </head>
@@ -1227,14 +1146,13 @@
         <i class="fas fa-bars"></i>
       </button>
       <ul class="nav-tabs" id="navTabs">
-      <li class="nav-tab"><a href="index.html">Home</a></li>
-      <li class="nav-tab"><a href="programmes.html">Programmes</a></li>
-      <li class="nav-tab"><a href="extra-scolaire.html">Immersion</a></li>
-      <li class="nav-tab"><a href="vie-au-ghana.html">Vivre au Ghana</a></li>
-      <!-- <li class="nav-tab"><a href="etudes-bourses.html">Études à l'étranger</a></li> -->
-      <li class="nav-tab"><a href="alumini.html">Témoignages</a></li>
-      <li class="nav-tab"><a href="contactez-nous.html">Contacts</a></li>
-    </ul>
+        <li class="nav-tab"><a href="index.html">Home</a></li>
+        <li class="nav-tab"><a href="programmes.html">Programmes</a></li>
+        <li class="nav-tab"><a href="extra-scolaire.html">Immersion</a></li>
+        <li class="nav-tab"><a href="vie-au-ghana.html">Vivre au Ghana</a></li>
+        <li class="nav-tab"><a href="alumini.html">Témoignages</a></li>
+        <li class="nav-tab"><a href="contactez-nous.html">Contacts</a></li>
+      </ul>
     </div>
   </nav>
 
@@ -1248,9 +1166,6 @@
       <a href="https://fla-gh.blogspot.com/search/label/Notre%20actualit%C3%A9/" class="btn create-btn" target="_blank">Nos actualités</a>
       <a href="vie-au-ghana.html" class="btn create-btn">La vie au Ghana</a>
       <a href="accomplissements.html" class="btn create-btn">Nos accomplissements</a>
-
-
-
     </div>
   </div>
   
@@ -1287,7 +1202,7 @@
               Services d'accompagnement pour études à l'étranger
             </a>
           </h3>       
-             <p class="article-excerpt">Nous vous guidons pour étudier aux USA et en Malaisie avec notre expertise...</p>
+          <p class="article-excerpt">Nous vous guidons pour étudier aux USA et en Malaisie avec notre expertise...</p>
         </div>
       </div>
 
@@ -1420,46 +1335,14 @@
         </div>
       </div>
     </div>
-
-    <!-- NOUVELLE SECTION RÉSEAUX SOCIAUX (blanche, avant le footer) -->
-    <div class="social-section">
-      <h2>Suivez-nous</h2>
-      <p class="subtitle">Restez connecté avec Foreign Language Academy GH sur nos réseaux sociaux</p>
-      <div class="social-grid">
-        <a href="https://www.facebook.com/share/1Fhuc6zToL/" target="_blank" class="social-item" title="Facebook">
-          <div class="social-icon-wrapper"><i class="fab fa-facebook-f"></i></div>
-          <span>Facebook</span>
-          <small>@fla.ghana</small>
-        </a>
-        <a href="https://www.instagram.com/foreignlanguageacademygh?igsi=MWJidWNwcXdkNGgxcw==" target="_blank" class="social-item" title="Instagram">
-          <div class="social-icon-wrapper"><i class="fab fa-instagram"></i></div>
-          <span>Instagram</span>
-          <small>@foreignlanguageacademygh</small>
-        </a>
-        <a href="https://www.tiktok.com/@flaghana?_r=1&_t=ZS-99MrSPnee16" target="_blank" class="social-item" title="TikTok">
-          <div class="social-icon-wrapper"><i class="fab fa-tiktok"></i></div>
-          <span>TikTok</span>
-          <small>@foreignlanguageacademy</small>
-        </a>
-        <a href="https://www.threads.com/@foreignlanguageacademygh" target="_blank" class="social-item" title="Threads">
-          <div class="social-icon-wrapper"><i class="fa-brands fa-threads"></i></div>
-          <span>Threads</span>
-          <small>@foreignlanguageacademygh</small>
-        </a>
-        
-      </div>
-    </div>
-
   </div><!-- fin content -->
 
- <!-- POPUP WHATSAPP MINIMALISTE -->
+  <!-- POPUP WHATSAPP MINIMALISTE -->
   <div class="whatsapp-mini-popup" id="whatsappMiniPopup">
     <div class="whatsapp-bubble" id="whatsappBubble">
       <i class="fab fa-whatsapp whatsapp-icon-mini"></i>
       <div class="whatsapp-text">
-        📱 Un groupe WhatsApp de cours d'anglais 
-             gratuit et sans engagement? 
-             
+        📱 Un groupe WhatsApp de cours d'anglais gratuit et sans engagement?
         <span class="whatsapp-number">
           <a href="https://chat.whatsapp.com/G40JEhaukk62vxJGZp1FEe" target="_blank" class="whatsapp-link-inline">
             REJOINDRE
@@ -1470,18 +1353,15 @@
         </span>
       </div>
     </div>
-    <!-- BOUTON DE FERMETURE AJOUTÉ ICI -->
     <div class="close-mini-popup" id="closeMiniPopup">
       <i class="fas fa-times"></i>
     </div>
   </div>
 
-
-<!-- Bouton Back to Top -->
-  <a href="#" class="back-to-top">
+  <!-- Bouton Back to Top -->
+  <a href="#" class="back-to-top" id="backToTop">
     <i class="fas fa-arrow-up"></i>
   </a>
-
 
   <!-- Pied de page -->
   <footer class="app-footer">
@@ -1520,7 +1400,7 @@
         </div>
         <div class="tab-content">
           <a href="contactez-nous.html">Nous contacter</a>
-          <a href="map.html">Locallisation</a>
+          <a href="map.html">Localisation</a>
         </div>
       </div>
       
@@ -1536,10 +1416,43 @@
         </div>
       </div>
     </div>
+
+    <!-- RÉSEAUX SOCIAUX DANS LE FOOTER -->
+    <div class="footer-social">
+      <h3><i class="fas fa-share-alt" style="margin-right: 10px;"></i>SUIVEZ-NOUS SUR NOS RÉSEAUX</h3>
+      <div class="footer-social-grid">
+        <a href="https://www.facebook.com/share/1Fhuc6zToL/" target="_blank" class="footer-social-item" title="Facebook">
+          <div class="footer-social-icon"><i class="fab fa-facebook-f"></i></div>
+          <span>Facebook</span>
+          <small>@fla.ghana</small>
+        </a>
+        <a href="https://www.instagram.com/foreignlanguageacademygh?igsi=MWJidWNwcXdkNGgxcw==" target="_blank" class="footer-social-item" title="Instagram">
+          <div class="footer-social-icon"><i class="fab fa-instagram"></i></div>
+          <span>Instagram</span>
+          <small>@fla.ghana</small>
+        </a>
+        <a href="https://www.tiktok.com/@flaghana?_r=1&_t=ZS-99MrSPnee16" target="_blank" class="footer-social-item" title="TikTok">
+          <div class="footer-social-icon"><i class="fab fa-tiktok"></i></div>
+          <span>TikTok</span>
+          <small>@flaghana</small>
+        </a>
+        <a href="https://www.threads.com/@foreignlanguageacademygh" target="_blank" class="footer-social-item" title="Threads">
+          <div class="footer-social-icon"><i class="fa-brands fa-threads"></i></div>
+          <span>Threads</span>
+          <small>@fla.ghana</small>
+        </a>
+        <a href="https://wa.me/233536725050" target="_blank" class="footer-social-item" title="WhatsApp">
+          <div class="footer-social-icon"><i class="fab fa-whatsapp"></i></div>
+          <span>WhatsApp</span>
+          <small>+233 536725050</small>
+        </a>
+        
+      </div>
+    </div>
     
-    <div style="text-align: center; margin-top: 2rem; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+    <div class="footer-bottom">
       <p>Foreign Language Academy GH © 2025 | Numéro d'agrément : CS152770924</p>
-      <p>Ashongman Estates, Accra Ghana | +233 536725050 /+233 202165231</p>
+      <p>Ashongman Estates, Accra Ghana | +233 536725050 / +233 202165231</p>
       <p>flaghaccra@gmail.com</p>
     </div>
   </footer>
@@ -1573,9 +1486,21 @@
             icon.className = 'fas fa-bars';
           }
         });
+
+        // Fermer le menu en cliquant sur un lien
+        var navLinks = navTabs.querySelectorAll('a');
+        navLinks.forEach(function(link) {
+          link.addEventListener('click', function() {
+            navTabs.classList.remove('active');
+            var icon = menuToggle.querySelector('i');
+            if (icon) {
+              icon.className = 'fas fa-bars';
+            }
+          });
+        });
       }
 
-      // ----- CARROUSEL (inchangé) -----
+      // ----- CARROUSEL -----
       var slides = document.querySelector('.student-slides');
       var slideItems = document.querySelectorAll('.student-slide');
       var dots = document.querySelectorAll('.dot');
@@ -1617,20 +1542,20 @@
           });
         });
         
-        var slideInterval = setInterval(nextSlide, 2000);
+        var slideInterval = setInterval(nextSlide, 3000);
         var carousel = document.querySelector('.student-carousel');
         if (carousel) {
           carousel.addEventListener('mouseenter', function() {
             clearInterval(slideInterval);
           });
           carousel.addEventListener('mouseleave', function() {
-            slideInterval = setInterval(nextSlide, 2000);
+            slideInterval = setInterval(nextSlide, 3000);
           });
         }
       }
 
-      // ----- BACK TO TOP (inchangé) -----
-      var backToTop = document.querySelector('.back-to-top');
+      // ----- BACK TO TOP -----
+      var backToTop = document.getElementById('backToTop');
       if (backToTop) {
         backToTop.addEventListener('click', function(e) {
           e.preventDefault();
@@ -1646,7 +1571,7 @@
         });
       }
 
-      // ----- WHATSAPP POPUP (inchangé) -----
+      // ----- WHATSAPP POPUP -----
       var whatsappMiniPopup = document.getElementById('whatsappMiniPopup');
       var closeMiniPopup = document.getElementById('closeMiniPopup');
       var whatsappBubble = document.getElementById('whatsappBubble');
@@ -1677,36 +1602,6 @@
         setTimeout(function() {
           localStorage.removeItem('whatsappPopupClosed');
         }, 5 * 60 * 1000);
-      }
-
-      // ----- COMPTEURS (inchangé) -----
-      function animateValue(id, start, end, duration) {
-        var obj = document.getElementById(id);
-        if (!obj) return;
-        var startTimestamp = null;
-        function step(timestamp) {
-          if (!startTimestamp) startTimestamp = timestamp;
-          var progress = Math.min((timestamp - startTimestamp) / duration, 1);
-          obj.innerHTML = Math.floor(progress * (end - start) + start);
-          if (progress < 1) {
-            window.requestAnimationFrame(step);
-          }
-        }
-        window.requestAnimationFrame(step);
-      }
-      
-      var statsSection = document.querySelector('.stats-section');
-      if (statsSection) {
-        var observer = new IntersectionObserver(function(entries) {
-          if (entries[0].isIntersecting) {
-            animateValue('students-count', 0, 1500, 2000);
-            animateValue('countries-count', 0, 15, 1500);
-            animateValue('teachers-count', 0, 28, 1500);
-            animateValue('abroad-count', 0, 320, 2000);
-            observer.disconnect();
-          }
-        }, { threshold: 0.5 });
-        observer.observe(statsSection);
       }
     });
   </script>
